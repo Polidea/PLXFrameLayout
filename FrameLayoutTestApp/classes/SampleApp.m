@@ -80,7 +80,7 @@
     _topContainer.height = 75;
     _bottomContainer.height = 75;
     
-    [self fillSuperViewVerticalyWithViews:@[_topContainer, _middleContainer, _bottomContainer] expandableViews:[NSSet setWithArray:@[_middleContainer]]];
+    [self fillSuperViewVerticallyWithViews:@[_topContainer, _middleContainer, _bottomContainer] expandableViews:[NSSet setWithArray:@[_middleContainer]]];
     
     _topLeftView.size = CGSizeMake(50, 50);
     [_topLeftView centerYInSuperView];

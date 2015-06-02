@@ -98,14 +98,56 @@
                 [view alignTo:attribute ofView:self withMargin:marginFromAttribute];
                 break;
             default:
-                @throw [NSException exceptionWithName:@"RHLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+                @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
                                              userInfo:nil];
         }
     }
     return height;
 }
 
--(void)fillSuperViewVerticalyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
+- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter{
+    return [self alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterY withMargin:spaceFromCenter];
+}
+
+- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute{
+    CGFloat width = 0;
+    NSNumber *previousSpacing = nil;
+    UIView *previousView = nil;
+    for (id viewOrSpacing in viewsAndSpacings) {
+        __unused BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
+        BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
+        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        if (isSpacing) {
+            previousSpacing = viewOrSpacing;
+            continue;
+        }
+        UIView *view = viewOrSpacing;
+        CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
+        if (!previousView && previousSpacing) {
+            [view alignToSuperView:NSLayoutAttributeLeft withMargin:margin];
+        } else if (previousView) {
+            [view placeOnRightOf:previousView withMargin:margin];
+        }
+        width += margin + view.width;
+        previousView = view;
+        previousSpacing = nil;
+        switch (attribute) {
+            case NSLayoutAttributeTop:
+            case NSLayoutAttributeBottom:
+            case NSLayoutAttributeCenterY:
+                [view alignTo:attribute ofView:self withMargin:marginFromAttribute];
+                break;
+            default:
+                @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+                                             userInfo:nil];
+        }
+    }
+    return width;
+}
+
+#pragma mark - Fill superviews
+
+-(void)fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
     CGFloat allNonExpandableViewsHeight = 0;
     for (UIView *view in viewsAndSpacing) {
         allNonExpandableViewsHeight += [expandableViews containsObject:view] ? 0 : view.height; //expandable doesn't count
@@ -119,6 +161,84 @@
     }
     
     [self alignViewsVertically:viewsAndSpacing];
+}
+
+-(void)fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
+    CGFloat allNonExpandableViewsWidth = 0;
+    for (UIView *view in viewsAndSpacing) {
+        allNonExpandableViewsWidth += [expandableViews containsObject:view] ? 0 : view.height; //expandable doesn't count
+    }
+    
+    CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - allNonExpandableViewsWidth;
+    CGFloat widthForSingleExpandableView = freeHorizontalSpace / (CGFloat)expandableViews.count;
+    
+    for(UIView *expandableView in expandableViews){
+        expandableView.height = widthForSingleExpandableView;
+    }
+    
+    [self alignViewsVertically:viewsAndSpacing];
+}
+
+#pragma mark - Arrange superviews
+
+-(void)arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces{
+    CGFloat subviewsTotalHeight = 0;
+    for (UIView *view in subviews) {
+        subviewsTotalHeight += CGRectGetHeight(view.bounds);
+    }
+    
+    CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - subviewsTotalHeight;
+    
+    NSInteger numberOfSpacers = leadingAndTralingSpaces ? subviews.count-1 + 2 : subviews.count-1;
+    CGFloat spacerHeight = freeVerticalSpace / numberOfSpacers;
+    
+    NSMutableArray *viewsAndSpacers = [[NSMutableArray alloc]init];
+
+    [subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
+        [viewsAndSpacers addObject:subview];
+
+        BOOL isLastObject = idx==subviews.count-1;
+        if (!isLastObject){
+            [viewsAndSpacers addObject:@(spacerHeight)];
+        }
+    }];
+    
+    if(leadingAndTralingSpaces){
+        [viewsAndSpacers insertObject:@(spacerHeight) atIndex:0];
+        [viewsAndSpacers addObject:@(spacerHeight)];
+    }
+
+    [self alignViewsVertically:viewsAndSpacers];
+}
+
+-(void)arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces{
+    CGFloat subviewsTotalWidth = 0;
+    for (UIView *view in subviews) {
+        subviewsTotalWidth += CGRectGetWidth(view.bounds);
+    }
+    
+    CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - subviewsTotalWidth;
+    
+    NSInteger numberOfSpacers = leadingAndTralingSpaces ? subviews.count-1 + 2 : subviews.count-1;
+    CGFloat spacerWidth = freeHorizontalSpace / numberOfSpacers;
+    
+    NSMutableArray *viewsAndSpacers = [[NSMutableArray alloc]init];
+    
+    [subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
+        [viewsAndSpacers addObject:subview];
+        
+        BOOL isLastObject = idx==subviews.count-1;
+        if (!isLastObject){
+            [viewsAndSpacers addObject:@(spacerWidth)];
+        }
+    }];
+    
+    if(leadingAndTralingSpaces){
+        [viewsAndSpacers insertObject:@(spacerWidth) atIndex:0];
+        [viewsAndSpacers addObject:@(spacerWidth)];
+    }
+
+    [self alignViewsHorizontally:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterY withMargin:0];
 }
 
 #pragma mark - Edges
@@ -285,7 +405,7 @@
             frame.origin.y = CGRectGetMidY(otherBounds) - CGRectGetHeight(frame) * 0.5f + margin;
             break;
         default:
-            @throw [NSException exceptionWithName:@"RHLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+            @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
                                          userInfo:nil];
     }
     self.frame = frame;

@@ -1,22 +1,19 @@
 //
-//  RowAlignment.m
+//  RowColsArrangement.m
 //  FrameLayoutTestApp
 //
 //  Created by Pawel Scibek on 02/06/15.
 //  Copyright (c) 2015 Polidea. All rights reserved.
 //
 
-#import "RowAlignment.h"
+#import "RowColsArrangement.h"
 #import "UIView+PLFrameLayout.h"
 #import "ColorSubviewFactory.h"
 
 static const NSInteger kNumbeOfVerticalItems    = 6;
 static const NSInteger kNumbeOfHorizontalItems  = 4;
 
-static const CGFloat kItemsVerticalSpacing      = 10.0;
-static const CGFloat kItemsHorizontalSpacing    = 10.0;
-
-@implementation RowAlignment{
+@implementation RowColsArrangement{
     NSArray *_verticalItems;
     NSArray *_horizontalItems;
 }
@@ -29,10 +26,8 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
         _verticalItems = [self verticalItemsWithSize:itemSize];
         _horizontalItems = [self horizontalItemsWithSize:itemSize];
         
-        for (id viewOrSpace in [_verticalItems arrayByAddingObjectsFromArray:_horizontalItems]) {
-            if([viewOrSpace isKindOfClass:[UIView class]]){
-                [self addSubview:viewOrSpace];
-            }
+        for (UIView *view in [_verticalItems arrayByAddingObjectsFromArray:_horizontalItems]) {
+            [self addSubview:view];
         }
     }
     return self;
@@ -40,10 +35,10 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [self alignViewsVertically:_verticalItems additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
-    [self alignViewsHorizontally:_horizontalItems additionallyAligningTo:NSLayoutAttributeBottom withMargin:10];
+    
+    [self arrangeSubViewsHorizontallyInSuperView:_horizontalItems addLeadingAndTrailingSpaces:YES];
+    [self arrangeSubViewsVerticallyInSuperView:_verticalItems addLeadingAndTrailingSpaces:YES];
 }
-
 
 -(NSArray *)verticalItemsWithSize:(CGSize)size{
     NSMutableArray *verticalItems = [[NSMutableArray alloc] initWithCapacity:kNumbeOfVerticalItems];
@@ -52,9 +47,7 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
         
         UIView *subview = [ColorSubviewFactory greenView];
         subview.size = size;
-        
-        NSArray *subviewWithSpacing = @[@(kItemsVerticalSpacing), subview];
-        [verticalItems addObjectsFromArray:subviewWithSpacing];
+        [verticalItems addObject:subview];
     }
     
     return verticalItems.copy;
@@ -67,13 +60,10 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
         
         UIView *subview = [ColorSubviewFactory yellowView];
         subview.size = size;
-        
-        NSArray *subviewWithSpacing = @[@(kItemsHorizontalSpacing), subview];
-        [verticalItems addObjectsFromArray:subviewWithSpacing];
+        [verticalItems addObject:subview];
     }
     
     return verticalItems.copy;
 }
-
 
 @end

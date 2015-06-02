@@ -27,11 +27,10 @@ static NSString *const CellReuseIdentifier      = @"CellReuseIdentifier";
     self.title = @"Frame Layout";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellReuseIdentifier];
     
-    _menuItems = @[
-                   @{MenuItemKey_Label: @"Simple Edge Alignment", MenuItemKey_ClassName: @"EdgeAlignment"},
-                   @{MenuItemKey_Label: @"Row Alignment", MenuItemKey_ClassName: @"RowAlignment"},
+    _menuItems = @[@{MenuItemKey_Label: @"Simple Edge Alignment", MenuItemKey_ClassName: @"EdgeAlignment"},
+                   @{MenuItemKey_Label: @"Rows & Cols Alignment", MenuItemKey_ClassName: @"RowAlignment"},
+                   @{MenuItemKey_Label: @"Rows & Cols Arangement", MenuItemKey_ClassName: @"RowColsArrangement"},
                    @{MenuItemKey_Label: @"Sample App Layout", MenuItemKey_ClassName: @"SampleApp"}];
-                   
 
 }
 

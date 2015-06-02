@@ -19,6 +19,8 @@
 		A87CFC6A1B1D8B5B00E54163 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC691B1D8B5B00E54163 /* AppDelegate.m */; };
 		A87CFC6D1B1D928E00E54163 /* RowAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6C1B1D928E00E54163 /* RowAlignment.m */; };
 		A87CFC701B1D9CFB00E54163 /* SampleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */; };
+		A87CFC731B1DD30600E54163 /* NestedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC721B1DD30600E54163 /* NestedLayout.m */; };
+		A87CFC761B1DE89B00E54163 /* RowColsArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		A87CFC6C1B1D928E00E54163 /* RowAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowAlignment.m; path = classes/RowAlignment.m; sourceTree = "<group>"; };
 		A87CFC6E1B1D9CFB00E54163 /* SampleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleApp.h; path = classes/SampleApp.h; sourceTree = "<group>"; };
 		A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleApp.m; path = classes/SampleApp.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A87CFC711B1DD30600E54163 /* NestedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NestedLayout.h; path = classes/NestedLayout.h; sourceTree = "<group>"; };
+		A87CFC721B1DD30600E54163 /* NestedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NestedLayout.m; path = classes/NestedLayout.m; sourceTree = "<group>"; };
+		A87CFC741B1DE89B00E54163 /* RowColsArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowColsArrangement.h; path = classes/RowColsArrangement.h; sourceTree = "<group>"; };
+		A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowColsArrangement.m; path = classes/RowColsArrangement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,10 @@
 				A87CFC6C1B1D928E00E54163 /* RowAlignment.m */,
 				A87CFC6E1B1D9CFB00E54163 /* SampleApp.h */,
 				A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */,
+				A87CFC741B1DE89B00E54163 /* RowColsArrangement.h */,
+				A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */,
+				A87CFC711B1DD30600E54163 /* NestedLayout.h */,
+				A87CFC721B1DD30600E54163 /* NestedLayout.m */,
 			);
 			name = "Demo Views";
 			sourceTree = "<group>";
@@ -271,10 +281,12 @@
 			files = (
 				A87CFC6D1B1D928E00E54163 /* RowAlignment.m in Sources */,
 				A87CFC551B1C94B900E54163 /* EdgeAlignment.m in Sources */,
+				A87CFC761B1DE89B00E54163 /* RowColsArrangement.m in Sources */,
 				A87CFC661B1D88AD00E54163 /* ColorSubviewFactory.m in Sources */,
 				A87CFC5E1B1CA62500E54163 /* ListViewController.m in Sources */,
 				A87CFC581B1C94E900E54163 /* UIView+PLFrameLayout.m in Sources */,
 				A87CFC701B1D9CFB00E54163 /* SampleApp.m in Sources */,
+				A87CFC731B1DD30600E54163 /* NestedLayout.m in Sources */,
 				A87CFC291B1C883B00E54163 /* main.m in Sources */,
 				A87CFC631B1D85F700E54163 /* DetailViewController.m in Sources */,
 				A87CFC6A1B1D8B5B00E54163 /* AppDelegate.m in Sources */,

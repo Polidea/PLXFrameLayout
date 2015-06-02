@@ -20,6 +20,9 @@
 - (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
 - (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
 
+- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
+- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
+
 - (void)pinToSuperViewEdges;
 - (void)pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
 
@@ -52,5 +55,10 @@
 
 - (void)sizeToFitSubviews;
 
--(void)fillSuperViewVerticalyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
+-(void)fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
+-(void)fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
+
+-(void)arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces;
+-(void)arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces;
+
 @end
