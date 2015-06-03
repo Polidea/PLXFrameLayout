@@ -49,8 +49,8 @@ static NSString *const CellReuseIdentifier      = @"CellReuseIdentifier";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *className = _menuItems[indexPath.row][MenuItemKey_ClassName];
-    Class viewClass = NSClassFromString(className);
+    NSString *viewClassName = _menuItems[indexPath.row][MenuItemKey_ClassName];
+    Class viewClass = NSClassFromString(viewClassName);
 
     UIView *mainView = [[viewClass alloc] initWithFrame:CGRectZero];
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithMainView:mainView];

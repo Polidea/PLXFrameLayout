@@ -21,7 +21,7 @@
 }
 
 -(void)loadView{
-    NSAssert(_mainView, @"MainView cannot be nil, use initWithMainView: initializer.");
+    NSAssert(_mainView, @"MainView cannot be nil, use -initWithMainView: initializer.");
     self.view = _mainView;
 }
 

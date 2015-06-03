@@ -7,21 +7,21 @@
 
 @implementation UIView (PLFrameLayout)
 
-- (CGFloat)minY {
+- (CGFloat)pl_minY {
     return CGRectGetMinY(self.frame);
 }
 
-- (void)setMinY:(CGFloat)minY {
+- (void)setPl_minY:(CGFloat)minY {
     CGRect frame = self.frame;
     frame.origin.y = minY;
     self.frame = frame;
 }
 
-- (CGFloat)maxY {
+- (CGFloat)pl_maxY {
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)setMaxY:(CGFloat)maxY {
+- (void)setPl_maxY:(CGFloat)maxY {
     CGRect frame = self.frame;
     frame.origin.y = maxY - frame.size.height;
     self.frame = frame;
@@ -29,27 +29,27 @@
 
 #pragma mark - Dimensions
 
-- (CGFloat)width {
+- (CGFloat)pl_width {
     return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
-    self.size = CGSizeMake(width, self.height);
+- (void)setPl_width:(CGFloat)width {
+    self.pl_size = CGSizeMake(width, self.pl_height);
 }
 
-- (CGFloat)height {
+- (CGFloat)pl_height {
     return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
-    self.size = CGSizeMake(self.width, height);
+- (void)setPl_height:(CGFloat)height {
+    self.pl_size = CGSizeMake(self.pl_width, height);
 }
 
-- (CGSize)size {
+- (CGSize)pl_size {
     return self.frame.size;
 }
 
-- (void)setSize:(CGSize)size {
+- (void)setPl_size:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
@@ -57,19 +57,19 @@
 
 #pragma mark - Batch Align
 
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings {
-    return [self alignViewsVerticallyCentering:viewsAndSpacings];
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings {
+    return [self pl_alignViewsVerticallyCentering:viewsAndSpacings];
 }
 
-- (CGFloat)alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
-    return [self alignViewsVertically:viewsAndSpacings centeringWithMargin:0];
+- (CGFloat)pl_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
+    return [self pl_alignViewsVertically:viewsAndSpacings centeringWithMargin:0];
 }
 
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
-    return [self alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX withMargin:spaceFromCenter];
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
+    return [self pl_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX withMargin:spaceFromCenter];
 }
 
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
     CGFloat height = 0;
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
@@ -84,18 +84,18 @@
         UIView *view = viewOrSpacing;
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
-            [view alignToSuperView:NSLayoutAttributeTop withMargin:margin];
+            [view pl_alignToSuperView:NSLayoutAttributeTop withMargin:margin];
         } else if (previousView) {
-            [view placeUnder:previousView withMargin:margin];
+            [view pl_placeUnder:previousView withMargin:margin];
         }
-        height += margin + view.height;
+        height += margin + view.pl_height;
         previousView = view;
         previousSpacing = nil;
         switch (attribute) {
             case NSLayoutAttributeLeft:
             case NSLayoutAttributeRight:
             case NSLayoutAttributeCenterX:
-                [view alignTo:attribute ofView:self withMargin:marginFromAttribute];
+                [view pl_alignTo:attribute ofView:self withMargin:marginFromAttribute];
                 break;
             default:
                 @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
@@ -105,11 +105,11 @@
     return height;
 }
 
-- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter{
-    return [self alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterY withMargin:spaceFromCenter];
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter{
+    return [self pl_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterY withMargin:spaceFromCenter];
 }
 
-- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute{
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute{
     CGFloat width = 0;
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
@@ -124,18 +124,18 @@
         UIView *view = viewOrSpacing;
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
-            [view alignToSuperView:NSLayoutAttributeLeft withMargin:margin];
+            [view pl_alignToSuperView:NSLayoutAttributeLeft withMargin:margin];
         } else if (previousView) {
-            [view placeOnRightOf:previousView withMargin:margin];
+            [view pl_placeOnRightOf:previousView withMargin:margin];
         }
-        width += margin + view.width;
+        width += margin + view.pl_width;
         previousView = view;
         previousSpacing = nil;
         switch (attribute) {
             case NSLayoutAttributeTop:
             case NSLayoutAttributeBottom:
             case NSLayoutAttributeCenterY:
-                [view alignTo:attribute ofView:self withMargin:marginFromAttribute];
+                [view pl_alignTo:attribute ofView:self withMargin:marginFromAttribute];
                 break;
             default:
                 @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
@@ -147,41 +147,41 @@
 
 #pragma mark - Fill superviews
 
--(void)fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
+-(void)pl_fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
     CGFloat allNonExpandableViewsHeight = 0;
     for (UIView *view in viewsAndSpacing) {
-        allNonExpandableViewsHeight += [expandableViews containsObject:view] ? 0 : view.height; //expandable doesn't count
+        allNonExpandableViewsHeight += [expandableViews containsObject:view] ? 0 : view.pl_height; //expandable doesn't count
     }
     
     CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - allNonExpandableViewsHeight;
     CGFloat heightForSingleExpandableView = freeVerticalSpace / (CGFloat)expandableViews.count;
     
     for(UIView *expandableView in expandableViews){
-        expandableView.height = heightForSingleExpandableView;
+        expandableView.pl_height = heightForSingleExpandableView;
     }
     
-    [self alignViewsVertically:viewsAndSpacing];
+    [self pl_alignViewsVertically:viewsAndSpacing];
 }
 
--(void)fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
+-(void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews{
     CGFloat allNonExpandableViewsWidth = 0;
     for (UIView *view in viewsAndSpacing) {
-        allNonExpandableViewsWidth += [expandableViews containsObject:view] ? 0 : view.height; //expandable doesn't count
+        allNonExpandableViewsWidth += [expandableViews containsObject:view] ? 0 : view.pl_height; //expandable doesn't count
     }
     
     CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - allNonExpandableViewsWidth;
     CGFloat widthForSingleExpandableView = freeHorizontalSpace / (CGFloat)expandableViews.count;
     
     for(UIView *expandableView in expandableViews){
-        expandableView.height = widthForSingleExpandableView;
+        expandableView.pl_height = widthForSingleExpandableView;
     }
     
-    [self alignViewsVertically:viewsAndSpacing];
+    [self pl_alignViewsVertically:viewsAndSpacing];
 }
 
 #pragma mark - Arrange superviews
 
--(void)arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces{
+-(void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces{
     CGFloat subviewsTotalHeight = 0;
     for (UIView *view in subviews) {
         subviewsTotalHeight += CGRectGetHeight(view.bounds);
@@ -189,7 +189,7 @@
     
     CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - subviewsTotalHeight;
     
-    NSInteger numberOfSpacers = leadingAndTralingSpaces ? subviews.count-1 + 2 : subviews.count-1;
+    NSInteger numberOfSpacers = topAndBottomSpaces ? subviews.count-1 + 2 : subviews.count-1;
     CGFloat spacerHeight = freeVerticalSpace / numberOfSpacers;
     
     NSMutableArray *viewsAndSpacers = [[NSMutableArray alloc]init];
@@ -203,15 +203,15 @@
         }
     }];
     
-    if(leadingAndTralingSpaces){
+    if(topAndBottomSpaces){
         [viewsAndSpacers insertObject:@(spacerHeight) atIndex:0];
         [viewsAndSpacers addObject:@(spacerHeight)];
     }
 
-    [self alignViewsVertically:viewsAndSpacers];
+    [self pl_alignViewsVertically:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
 }
 
--(void)arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces{
+-(void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces{
     CGFloat subviewsTotalWidth = 0;
     for (UIView *view in subviews) {
         subviewsTotalWidth += CGRectGetWidth(view.bounds);
@@ -238,31 +238,31 @@
         [viewsAndSpacers addObject:@(spacerWidth)];
     }
 
-    [self alignViewsHorizontally:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterY withMargin:0];
+    [self pl_alignViewsHorizontally:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterY withMargin:0];
 }
 
 #pragma mark - Edges
 
-- (void)pinToSuperViewEdges {
+- (void)pl_pinToSuperViewEdges {
     self.frame = self.superview.bounds;
 }
 
-- (void)pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pinToSuperViewHorizontalEdgesWithInsets:insets];
-    [self pinToSuperViewVerticalEdgesWithInsets:insets];
+- (void)pl_pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_pinToSuperViewHorizontalEdgesWithInsets:insets];
+    [self pl_pinToSuperViewVerticalEdgesWithInsets:insets];
 }
 
-- (void)pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pinToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
-    [self pinToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
+- (void)pl_pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_pinToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
+    [self pl_pinToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
 }
 
-- (void)pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pinToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
-    [self pinToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
+- (void)pl_pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_pinToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
+    [self pl_pinToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
 }
 
-- (void)pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
+- (void)pl_pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
     CGRect frame = self.frame;
     switch (edge) {
         case NSLayoutAttributeLeft: {
@@ -297,87 +297,87 @@
 
 #pragma mark - Center
 
-- (void)alignToCenterXOfView:(UIView *)view {
-    [self alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
+- (void)pl_alignToCenterXOfView:(UIView *)view {
+    [self pl_alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
 }
 
-- (void)alignToCenterYOfView:(UIView *)view {
-    [self alignTo:NSLayoutAttributeCenterY ofView:view withMargin:0];
+- (void)pl_alignToCenterYOfView:(UIView *)view {
+    [self pl_alignTo:NSLayoutAttributeCenterY ofView:view withMargin:0];
 }
 
-- (void)centerXInSuperView {
-    [self alignToSuperView:NSLayoutAttributeCenterX withMargin:0];
+- (void)pl_centerXInSuperView {
+    [self pl_alignToSuperView:NSLayoutAttributeCenterX withMargin:0];
 }
 
-- (void)centerYInSuperView {
-    [self alignToSuperView:NSLayoutAttributeCenterY withMargin:0];
+- (void)pl_centerYInSuperView {
+    [self pl_alignToSuperView:NSLayoutAttributeCenterY withMargin:0];
 }
 
 #pragma mark - Above
 
-- (void)placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeAbove:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
+- (void)pl_placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeAbove:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
 }
 
-- (void)placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeAbove:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeLeft ofView:view withMargin:0];
+- (void)pl_placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeAbove:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeLeft ofView:view withMargin:0];
 }
 
-- (void)placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeAbove:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeRight ofView:view withMargin:0];
+- (void)pl_placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeAbove:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeRight ofView:view withMargin:0];
 }
 
 #pragma mark - Under
 
-- (void)placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeUnder:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
+- (void)pl_placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeUnder:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
 }
 
-- (void)placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeUnder:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeLeft ofView:view withMargin:0];
+- (void)pl_placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeUnder:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeLeft ofView:view withMargin:0];
 }
 
-- (void)placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
-    [self placeUnder:view withMargin:margin];
-    [self alignTo:NSLayoutAttributeRight ofView:view withMargin:0];
+- (void)pl_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self pl_placeUnder:view withMargin:margin];
+    [self pl_alignTo:NSLayoutAttributeRight ofView:view withMargin:0];
 }
 
 #pragma mark - Core
 
-- (void)placeUnder:(UIView *)view withMargin:(CGFloat)margin {
+- (void)pl_placeUnder:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
     frame.origin.y = CGRectGetMaxY(view.frame) + margin;
     self.frame = frame;
 }
 
-- (void)placeAbove:(UIView *)view withMargin:(CGFloat)margin {
+- (void)pl_placeAbove:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
     frame.origin.y = CGRectGetMinY(view.bounds) - CGRectGetHeight(frame) - margin;
     self.frame = frame;
 }
 
-- (void)placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin {
+- (void)pl_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
     frame.origin.x = CGRectGetMinX(view.frame) - CGRectGetWidth(frame) + margin;
     self.frame = frame;
 }
 
-- (void)placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin {
+- (void)pl_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
     frame.origin.x = CGRectGetMaxX(view.frame) + margin;
     self.frame = frame;
 }
 
-- (void)alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin {
-    [self alignTo:edgeAttribute ofView:self.superview withMargin:margin];
+- (void)pl_alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin {
+    [self pl_alignTo:edgeAttribute ofView:self.superview withMargin:margin];
 }
 
-- (void)alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin {
+- (void)pl_alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
     CGRect otherBounds;
     if ([view isEqual:self.superview]) {
@@ -413,7 +413,7 @@
 
 #pragma mark - Helpers
 
-- (void)sizeToFitSubviews {
+- (void)pl_sizeToFitSubviews {
     for (UIView *subview in self.subviews) {
         [subview sizeToFit];
     }

@@ -72,45 +72,45 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
 
-    _redSquare.size = CGSizeMake(100, 100);
-    [_redSquare centerXInSuperView];
-    [_redSquare centerYInSuperView];
+    _redSquare.pl_size = CGSizeMake(100, 100);
+    [_redSquare pl_centerXInSuperView];
+    [_redSquare pl_centerYInSuperView];
     
     CGFloat edgeMargin = 10;
 
     CGSize greensSize = CGSizeMake(70, 70);
-    _greenSquareTopLeft.size = greensSize;
-    [_greenSquareTopLeft alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
-    [_greenSquareTopLeft alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    _greenSquareTopLeft.pl_size = greensSize;
+    [_greenSquareTopLeft pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
+    [_greenSquareTopLeft pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
 
-    _greenSquareTopRight.size = greensSize;
-    [_greenSquareTopRight alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
-    [_greenSquareTopRight alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    _greenSquareTopRight.pl_size = greensSize;
+    [_greenSquareTopRight pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
+    [_greenSquareTopRight pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
 
-    _greenSquareBottomLeft.size = greensSize;
-    [_greenSquareBottomLeft alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
-    [_greenSquareBottomLeft alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    _greenSquareBottomLeft.pl_size = greensSize;
+    [_greenSquareBottomLeft pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
+    [_greenSquareBottomLeft pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
 
-    _greenSquareBottomRight.size = greensSize;
-    [_greenSquareBottomRight alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
-    [_greenSquareBottomRight alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    _greenSquareBottomRight.pl_size = greensSize;
+    [_greenSquareBottomRight pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
+    [_greenSquareBottomRight pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
     
     CGSize yellowsSize = CGSizeMake(70, 70);
-    _yellowSquareTopMiddle.size = yellowsSize;
-    [_yellowSquareTopMiddle alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
-    [_yellowSquareTopMiddle alignToCenterXOfView:self];
+    _yellowSquareTopMiddle.pl_size = yellowsSize;
+    [_yellowSquareTopMiddle pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
+    [_yellowSquareTopMiddle pl_alignToCenterXOfView:self];
     
-    _yellowSquareBottomMiddle.size = yellowsSize;
-    [_yellowSquareBottomMiddle alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
-    [_yellowSquareBottomMiddle alignToCenterXOfView:self];
+    _yellowSquareBottomMiddle.pl_size = yellowsSize;
+    [_yellowSquareBottomMiddle pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
+    [_yellowSquareBottomMiddle pl_alignToCenterXOfView:self];
     
-    _yellowSquareRightMiddle.size = yellowsSize;
-    [_yellowSquareRightMiddle alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
-    [_yellowSquareRightMiddle alignToCenterYOfView:self];
+    _yellowSquareRightMiddle.pl_size = yellowsSize;
+    [_yellowSquareRightMiddle pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    [_yellowSquareRightMiddle pl_alignToCenterYOfView:self];
     
-    _yellowSquareLeftMiddle.size = yellowsSize;
-    [_yellowSquareLeftMiddle alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
-    [_yellowSquareLeftMiddle alignToCenterYOfView:self];
+    _yellowSquareLeftMiddle.pl_size = yellowsSize;
+    [_yellowSquareLeftMiddle pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    [_yellowSquareLeftMiddle pl_alignToCenterYOfView:self];
 }
 
 

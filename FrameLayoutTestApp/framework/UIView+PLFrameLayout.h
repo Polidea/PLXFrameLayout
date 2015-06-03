@@ -7,58 +7,58 @@
 #import <Foundation/Foundation.h>
 
 @interface UIView (PLFrameLayout)
-@property(nonatomic, assign) CGFloat minY;
-@property(nonatomic, assign) CGFloat maxY;
-@property(nonatomic, assign) CGSize size;
-@property(nonatomic, assign) CGFloat width;
-@property(nonatomic, assign) CGFloat height;
+@property(nonatomic, assign) CGFloat pl_minY;
+@property(nonatomic, assign) CGFloat pl_maxY;
+@property(nonatomic, assign) CGSize pl_size;
+@property(nonatomic, assign) CGFloat pl_width;
+@property(nonatomic, assign) CGFloat pl_height;
 
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings;
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings;
 
-- (CGFloat)alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings;
+- (CGFloat)pl_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings;
 
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
-- (CGFloat)alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
 
-- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
-- (CGFloat)alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
 
-- (void)pinToSuperViewEdges;
-- (void)pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_pinToSuperViewEdges;
+- (void)pl_pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
 
-- (void)pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets;
-- (void)pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets;
-- (void)pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset;
+- (void)pl_pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset;
 
-- (void)centerXInSuperView;
-- (void)centerYInSuperView;
+- (void)pl_centerXInSuperView;
+- (void)pl_centerYInSuperView;
 
-- (void)alignToCenterXOfView:(UIView *)view;
-- (void)alignToCenterYOfView:(UIView *)view;
+- (void)pl_alignToCenterXOfView:(UIView *)view;
+- (void)pl_alignToCenterYOfView:(UIView *)view;
 
-- (void)placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)placeUnder:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeAbove:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeUnder:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeAbove:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin;
-- (void)placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin;
-- (void)alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin;
+- (void)pl_alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)sizeToFitSubviews;
+- (void)pl_sizeToFitSubviews;
 
--(void)fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
--(void)fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
+-(void)pl_fillSuperViewVerticallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
+-(void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)viewsAndSpacing expandableViews:(NSSet *)expandableViews;
 
--(void)arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces;
--(void)arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces;
+-(void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces;
+-(void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces;
 
 @end

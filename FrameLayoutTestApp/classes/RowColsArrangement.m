@@ -36,8 +36,8 @@ static const NSInteger kNumbeOfHorizontalItems  = 4;
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    [self arrangeSubViewsHorizontallyInSuperView:_horizontalItems addLeadingAndTrailingSpaces:YES];
-    [self arrangeSubViewsVerticallyInSuperView:_verticalItems addLeadingAndTrailingSpaces:YES];
+    [self pl_arrangeSubViewsHorizontallyInSuperView:_horizontalItems addLeadingAndTrailingSpaces:YES];
+    [self pl_arrangeSubViewsVerticallyInSuperView:_verticalItems addTopAndBottomSpaces:YES];
 }
 
 -(NSArray *)verticalItemsWithSize:(CGSize)size{
@@ -46,7 +46,7 @@ static const NSInteger kNumbeOfHorizontalItems  = 4;
     for (int i=0; i < kNumbeOfVerticalItems; i++) {
         
         UIView *subview = [ColorSubviewFactory greenView];
-        subview.size = size;
+        subview.pl_size = size;
         [verticalItems addObject:subview];
     }
     
@@ -59,7 +59,7 @@ static const NSInteger kNumbeOfHorizontalItems  = 4;
     for (int i=0; i < kNumbeOfHorizontalItems; i++) {
         
         UIView *subview = [ColorSubviewFactory yellowView];
-        subview.size = size;
+        subview.pl_size = size;
         [verticalItems addObject:subview];
     }
     

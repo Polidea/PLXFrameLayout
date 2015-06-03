@@ -26,7 +26,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self) {
-        
+        //containers
         UIView *topContainter = [[UIView alloc] initWithFrame:CGRectZero];
         _topContainer = topContainter;
 
@@ -40,6 +40,7 @@
         [self addSubview:middleContainter];
         [self addSubview:bottomContainter];
         
+        //container's subviews
         UIView *topLeftView = [ColorSubviewFactory yellowView];
         _topLeftView = topLeftView;
         
@@ -73,42 +74,42 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    [_topContainer pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_middleContainer pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_bottomContainer pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    //containers
+    [_topContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_middleContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_bottomContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
     
-    _topContainer.height = 75;
-    _bottomContainer.height = 75;
+    _topContainer.pl_height = 75;
+    _bottomContainer.pl_height = 75;
     
-    [self fillSuperViewVerticallyWithViews:@[_topContainer, _middleContainer, _bottomContainer] expandableViews:[NSSet setWithArray:@[_middleContainer]]];
+    [self pl_fillSuperViewVerticallyWithViews:@[_topContainer, _middleContainer, _bottomContainer] expandableViews:[NSSet setWithArray:@[_middleContainer]]];
     
-    _topLeftView.size = CGSizeMake(50, 50);
-    [_topLeftView centerYInSuperView];
-    [_topLeftView alignToSuperView:NSLayoutAttributeLeft withMargin:10];
+    //containers content
+    _topLeftView.pl_size = CGSizeMake(50, 50);
+    [_topLeftView pl_centerYInSuperView];
+    [_topLeftView pl_alignToSuperView:NSLayoutAttributeLeft withMargin:10];
     
-    _topRightView.size = CGSizeMake(50, 50);
-    [_topRightView centerYInSuperView];
-    [_topRightView alignToSuperView:NSLayoutAttributeRight withMargin:10];
+    _topRightView.pl_size = CGSizeMake(50, 50);
+    [_topRightView pl_centerYInSuperView];
+    [_topRightView pl_alignToSuperView:NSLayoutAttributeRight withMargin:10];
     
-    [_centerView pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
-    [_centerView centerXInSuperView];
-    [_centerView pinToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
+    [_centerView pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [_centerView pl_centerXInSuperView];
+    [_centerView pl_pinToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
 
     
-    _leftBottomButton.size = CGSizeMake(50, 50);
-    _centerBottomButton.size = CGSizeMake(50, 50);
-    _rightBottomButton.size = CGSizeMake(50, 50);
+    _leftBottomButton.pl_size = CGSizeMake(50, 50);
+    _centerBottomButton.pl_size = CGSizeMake(50, 50);
+    _rightBottomButton.pl_size = CGSizeMake(50, 50);
     
-    [_centerBottomButton centerXInSuperView];
-    [_centerBottomButton centerYInSuperView];
+    [_centerBottomButton pl_centerXInSuperView];
+    [_centerBottomButton pl_centerYInSuperView];
     
-    [_leftBottomButton centerYInSuperView];
-    [_leftBottomButton placeOnLeftOf:_centerBottomButton withMargin:-20];
+    [_leftBottomButton pl_centerYInSuperView];
+    [_leftBottomButton pl_placeOnLeftOf:_centerBottomButton withMargin:-20];
 
-    [_rightBottomButton centerYInSuperView];
-    [_rightBottomButton placeOnRightOf:_centerBottomButton withMargin:20];
-    
-
+    [_rightBottomButton pl_centerYInSuperView];
+    [_rightBottomButton pl_placeOnRightOf:_centerBottomButton withMargin:20];
 }
 
 

@@ -29,7 +29,8 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
         _verticalItems = [self verticalItemsWithSize:itemSize];
         _horizontalItems = [self horizontalItemsWithSize:itemSize];
         
-        for (id viewOrSpace in [_verticalItems arrayByAddingObjectsFromArray:_horizontalItems]) {
+        NSArray *allSubviews = [_verticalItems arrayByAddingObjectsFromArray:_horizontalItems];
+        for (id viewOrSpace in allSubviews) {
             if([viewOrSpace isKindOfClass:[UIView class]]){
                 [self addSubview:viewOrSpace];
             }
@@ -40,8 +41,8 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [self alignViewsVertically:_verticalItems additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
-    [self alignViewsHorizontally:_horizontalItems additionallyAligningTo:NSLayoutAttributeBottom withMargin:10];
+    [self pl_alignViewsVertically:_verticalItems additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
+    [self pl_alignViewsHorizontally:_horizontalItems additionallyAligningTo:NSLayoutAttributeBottom withMargin:10];
 }
 
 
@@ -51,7 +52,7 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
     for (int i=0; i < kNumbeOfVerticalItems; i++) {
         
         UIView *subview = [ColorSubviewFactory greenView];
-        subview.size = size;
+        subview.pl_size = size;
         
         NSArray *subviewWithSpacing = @[@(kItemsVerticalSpacing), subview];
         [verticalItems addObjectsFromArray:subviewWithSpacing];
@@ -66,7 +67,7 @@ static const CGFloat kItemsHorizontalSpacing    = 10.0;
     for (int i=0; i < kNumbeOfHorizontalItems; i++) {
         
         UIView *subview = [ColorSubviewFactory yellowView];
-        subview.size = size;
+        subview.pl_size = size;
         
         NSArray *subviewWithSpacing = @[@(kItemsHorizontalSpacing), subview];
         [verticalItems addObjectsFromArray:subviewWithSpacing];
