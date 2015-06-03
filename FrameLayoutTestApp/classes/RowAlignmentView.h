@@ -1,5 +1,5 @@
 //
-//  RowColsArrangement.h
+//  RowAlignment.h
 //  FrameLayoutTestApp
 //
 //  Created by Pawel Scibek on 02/06/15.
@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RowColsArrangement : UIView
-
+@interface RowAlignmentView : UIView
 @end

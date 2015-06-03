@@ -8,28 +8,26 @@
 
 #import "DetailViewController.h"
 
-@implementation DetailViewController{
+@implementation DetailViewController {
     UIView *_mainView;
 }
 
--(instancetype)initWithMainView:(UIView *)mainView{
+- (instancetype)initWithMainView:(UIView *)mainView {
     self = [super init];
-    if(self){
+    if (self) {
         _mainView = mainView;
     }
     return self;
 }
 
--(void)loadView{
+- (void)loadView {
     NSAssert(_mainView, @"MainView cannot be nil, use -initWithMainView: initializer.");
     self.view = _mainView;
 }
 
--(void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
-
-
 
 @end

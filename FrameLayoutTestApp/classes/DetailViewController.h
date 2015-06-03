@@ -10,6 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
--(instancetype)initWithMainView:(UIView *)mainView;
+- (instancetype)initWithMainView:(UIView *)mainView;
 
 @end

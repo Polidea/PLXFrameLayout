@@ -12,18 +12,18 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+
     ListViewController *mainViewController = [[ListViewController alloc] initWithStyle:UITableViewStylePlain];
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     navigationController.navigationBar.translucent = NO;
-    
+
     CGRect frame = [[UIScreen mainScreen] bounds];
-    UIWindow *window = [[UIWindow alloc]initWithFrame:frame];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];
     self.window = window;
-    
+
     return YES;
 }
 

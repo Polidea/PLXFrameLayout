@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810860BFCB3EB704A61757D3 /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 810860534E181D63B362C6E2 /* UIView+Utilities.m */; };
 		A87CFC291B1C883B00E54163 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC281B1C883B00E54163 /* main.m */; };
 		A87CFC341B1C883B00E54163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87CFC331B1C883B00E54163 /* Images.xcassets */; };
 		A87CFC371B1C883B00E54163 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A87CFC351B1C883B00E54163 /* LaunchScreen.xib */; };
 		A87CFC431B1C883B00E54163 /* FrameLayoutTestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC421B1C883B00E54163 /* FrameLayoutTestAppTests.m */; };
-		A87CFC551B1C94B900E54163 /* EdgeAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC541B1C94B900E54163 /* EdgeAlignment.m */; };
+		A87CFC551B1C94B900E54163 /* EdgeAlignmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC541B1C94B900E54163 /* EdgeAlignmentView.m */; };
 		A87CFC581B1C94E900E54163 /* UIView+PLFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC571B1C94E900E54163 /* UIView+PLFrameLayout.m */; };
 		A87CFC5E1B1CA62500E54163 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC5D1B1CA62500E54163 /* ListViewController.m */; };
 		A87CFC631B1D85F700E54163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC621B1D85F700E54163 /* DetailViewController.m */; };
 		A87CFC661B1D88AD00E54163 /* ColorSubviewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC651B1D88AD00E54163 /* ColorSubviewFactory.m */; };
 		A87CFC6A1B1D8B5B00E54163 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC691B1D8B5B00E54163 /* AppDelegate.m */; };
-		A87CFC6D1B1D928E00E54163 /* RowAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6C1B1D928E00E54163 /* RowAlignment.m */; };
-		A87CFC701B1D9CFB00E54163 /* SampleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */; };
-		A87CFC761B1DE89B00E54163 /* RowColsArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */; };
+		A87CFC6D1B1D928E00E54163 /* RowAlignmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6C1B1D928E00E54163 /* RowAlignmentView.m */; };
+		A87CFC701B1D9CFB00E54163 /* SampleAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6F1B1D9CFB00E54163 /* SampleAppView.m */; };
+		A87CFC761B1DE89B00E54163 /* RowColsArrangementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810860534E181D63B362C6E2 /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
+		81086D7C0903285C5E461B66 /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
 		A87CFC231B1C883B00E54163 /* FrameLayoutTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrameLayoutTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87CFC271B1C883B00E54163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87CFC281B1C883B00E54163 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +44,8 @@
 		A87CFC3C1B1C883B00E54163 /* FrameLayoutTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrameLayoutTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87CFC411B1C883B00E54163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87CFC421B1C883B00E54163 /* FrameLayoutTestAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameLayoutTestAppTests.m; sourceTree = "<group>"; };
-		A87CFC531B1C94B900E54163 /* EdgeAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeAlignment.h; path = classes/EdgeAlignment.h; sourceTree = "<group>"; };
-		A87CFC541B1C94B900E54163 /* EdgeAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeAlignment.m; path = classes/EdgeAlignment.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A87CFC531B1C94B900E54163 /* EdgeAlignmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeAlignmentView.h; path = classes/EdgeAlignmentView.h; sourceTree = "<group>"; };
+		A87CFC541B1C94B900E54163 /* EdgeAlignmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EdgeAlignmentView.m; path = classes/EdgeAlignmentView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A87CFC561B1C94E900E54163 /* UIView+PLFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+PLFrameLayout.h"; path = "framework/UIView+PLFrameLayout.h"; sourceTree = "<group>"; wrapsLines = 0; };
 		A87CFC571B1C94E900E54163 /* UIView+PLFrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+PLFrameLayout.m"; path = "framework/UIView+PLFrameLayout.m"; sourceTree = "<group>"; };
 		A87CFC5C1B1CA62500E54163 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = classes/ListViewController.h; sourceTree = "<group>"; };
@@ -53,12 +56,12 @@
 		A87CFC651B1D88AD00E54163 /* ColorSubviewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSubviewFactory.m; path = classes/ColorSubviewFactory.m; sourceTree = "<group>"; };
 		A87CFC681B1D8B5B00E54163 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = classes/AppDelegate.h; sourceTree = "<group>"; };
 		A87CFC691B1D8B5B00E54163 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = classes/AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
-		A87CFC6B1B1D928E00E54163 /* RowAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowAlignment.h; path = classes/RowAlignment.h; sourceTree = "<group>"; };
-		A87CFC6C1B1D928E00E54163 /* RowAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowAlignment.m; path = classes/RowAlignment.m; sourceTree = "<group>"; };
-		A87CFC6E1B1D9CFB00E54163 /* SampleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleApp.h; path = classes/SampleApp.h; sourceTree = "<group>"; };
-		A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleApp.m; path = classes/SampleApp.m; sourceTree = "<group>"; wrapsLines = 0; };
-		A87CFC741B1DE89B00E54163 /* RowColsArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowColsArrangement.h; path = classes/RowColsArrangement.h; sourceTree = "<group>"; };
-		A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowColsArrangement.m; path = classes/RowColsArrangement.m; sourceTree = "<group>"; };
+		A87CFC6B1B1D928E00E54163 /* RowAlignmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowAlignmentView.h; path = classes/RowAlignmentView.h; sourceTree = "<group>"; };
+		A87CFC6C1B1D928E00E54163 /* RowAlignmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowAlignmentView.m; path = classes/RowAlignmentView.m; sourceTree = "<group>"; };
+		A87CFC6E1B1D9CFB00E54163 /* SampleAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleAppView.h; path = classes/SampleAppView.h; sourceTree = "<group>"; };
+		A87CFC6F1B1D9CFB00E54163 /* SampleAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleAppView.m; path = classes/SampleAppView.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A87CFC741B1DE89B00E54163 /* RowColsArrangementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowColsArrangementView.h; path = classes/RowColsArrangementView.h; sourceTree = "<group>"; };
+		A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowColsArrangementView.m; path = classes/RowColsArrangementView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +157,16 @@
 		A87CFC5F1B1CAC7D00E54163 /* Demo Views */ = {
 			isa = PBXGroup;
 			children = (
-				A87CFC531B1C94B900E54163 /* EdgeAlignment.h */,
-				A87CFC541B1C94B900E54163 /* EdgeAlignment.m */,
-				A87CFC6B1B1D928E00E54163 /* RowAlignment.h */,
-				A87CFC6C1B1D928E00E54163 /* RowAlignment.m */,
-				A87CFC6E1B1D9CFB00E54163 /* SampleApp.h */,
-				A87CFC6F1B1D9CFB00E54163 /* SampleApp.m */,
-				A87CFC741B1DE89B00E54163 /* RowColsArrangement.h */,
-				A87CFC751B1DE89B00E54163 /* RowColsArrangement.m */,
+				A87CFC531B1C94B900E54163 /* EdgeAlignmentView.h */,
+				A87CFC541B1C94B900E54163 /* EdgeAlignmentView.m */,
+				A87CFC6B1B1D928E00E54163 /* RowAlignmentView.h */,
+				A87CFC6C1B1D928E00E54163 /* RowAlignmentView.m */,
+				A87CFC6E1B1D9CFB00E54163 /* SampleAppView.h */,
+				A87CFC6F1B1D9CFB00E54163 /* SampleAppView.m */,
+				A87CFC741B1DE89B00E54163 /* RowColsArrangementView.h */,
+				A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */,
+				810860534E181D63B362C6E2 /* UIView+Utilities.m */,
+				81086D7C0903285C5E461B66 /* UIView+Utilities.h */,
 			);
 			name = "Demo Views";
 			sourceTree = "<group>";
@@ -274,16 +279,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A87CFC6D1B1D928E00E54163 /* RowAlignment.m in Sources */,
-				A87CFC551B1C94B900E54163 /* EdgeAlignment.m in Sources */,
-				A87CFC761B1DE89B00E54163 /* RowColsArrangement.m in Sources */,
+				A87CFC6D1B1D928E00E54163 /* RowAlignmentView.m in Sources */,
+				A87CFC551B1C94B900E54163 /* EdgeAlignmentView.m in Sources */,
+				A87CFC761B1DE89B00E54163 /* RowColsArrangementView.m in Sources */,
 				A87CFC661B1D88AD00E54163 /* ColorSubviewFactory.m in Sources */,
 				A87CFC5E1B1CA62500E54163 /* ListViewController.m in Sources */,
 				A87CFC581B1C94E900E54163 /* UIView+PLFrameLayout.m in Sources */,
-				A87CFC701B1D9CFB00E54163 /* SampleApp.m in Sources */,
+				A87CFC701B1D9CFB00E54163 /* SampleAppView.m in Sources */,
 				A87CFC291B1C883B00E54163 /* main.m in Sources */,
 				A87CFC631B1D85F700E54163 /* DetailViewController.m in Sources */,
 				A87CFC6A1B1D8B5B00E54163 /* AppDelegate.m in Sources */,
+				810860BFCB3EB704A61757D3 /* UIView+Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
