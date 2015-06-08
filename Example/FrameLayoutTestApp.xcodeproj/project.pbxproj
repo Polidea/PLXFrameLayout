@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		810860BFCB3EB704A61757D3 /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 810860534E181D63B362C6E2 /* UIView+Utilities.m */; };
 		A87CFC291B1C883B00E54163 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC281B1C883B00E54163 /* main.m */; };
 		A87CFC341B1C883B00E54163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87CFC331B1C883B00E54163 /* Images.xcassets */; };
 		A87CFC371B1C883B00E54163 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A87CFC351B1C883B00E54163 /* LaunchScreen.xib */; };
@@ -21,6 +20,7 @@
 		A87CFC701B1D9CFB00E54163 /* SampleAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC6F1B1D9CFB00E54163 /* SampleAppView.m */; };
 		A87CFC761B1DE89B00E54163 /* RowColsArrangementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */; };
 		A8D680E61B257F8E0038D3BC /* UIView+PLFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D680E51B257F8E0038D3BC /* UIView+PLFrameLayout.m */; };
+		A8D680E91B259B230038D3BC /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D680E81B259B230038D3BC /* UIView+Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		810860534E181D63B362C6E2 /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
-		81086D7C0903285C5E461B66 /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
 		A87CFC231B1C883B00E54163 /* FrameLayoutTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrameLayoutTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87CFC271B1C883B00E54163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87CFC281B1C883B00E54163 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +60,8 @@
 		A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RowColsArrangementView.m; path = classes/RowColsArrangementView.m; sourceTree = "<group>"; };
 		A8D680E41B257F8E0038D3BC /* UIView+PLFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+PLFrameLayout.h"; path = "../../Framework/UIView+PLFrameLayout.h"; sourceTree = "<group>"; };
 		A8D680E51B257F8E0038D3BC /* UIView+PLFrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+PLFrameLayout.m"; path = "../../Framework/UIView+PLFrameLayout.m"; sourceTree = "<group>"; };
+		A8D680E71B259B230038D3BC /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Utilities.h"; path = "classes/UIView+Utilities.h"; sourceTree = "<group>"; };
+		A8D680E81B259B230038D3BC /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Utilities.m"; path = "classes/UIView+Utilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +157,8 @@
 		A87CFC5F1B1CAC7D00E54163 /* Demo Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8D680E71B259B230038D3BC /* UIView+Utilities.h */,
+				A8D680E81B259B230038D3BC /* UIView+Utilities.m */,
 				A87CFC531B1C94B900E54163 /* EdgeAlignmentView.h */,
 				A87CFC541B1C94B900E54163 /* EdgeAlignmentView.m */,
 				A87CFC6B1B1D928E00E54163 /* RowAlignmentView.h */,
@@ -165,8 +167,6 @@
 				A87CFC6F1B1D9CFB00E54163 /* SampleAppView.m */,
 				A87CFC741B1DE89B00E54163 /* RowColsArrangementView.h */,
 				A87CFC751B1DE89B00E54163 /* RowColsArrangementView.m */,
-				810860534E181D63B362C6E2 /* UIView+Utilities.m */,
-				81086D7C0903285C5E461B66 /* UIView+Utilities.h */,
 			);
 			name = "Demo Views";
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 				A87CFC291B1C883B00E54163 /* main.m in Sources */,
 				A87CFC631B1D85F700E54163 /* DetailViewController.m in Sources */,
 				A87CFC6A1B1D8B5B00E54163 /* AppDelegate.m in Sources */,
-				810860BFCB3EB704A61757D3 /* UIView+Utilities.m in Sources */,
+				A8D680E91B259B230038D3BC /* UIView+Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
