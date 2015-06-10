@@ -49,10 +49,10 @@
     CGRect secondViewFrame = ((UIView *)self.viewsAndSpacingsArray[3]).frame;
     CGRect thirdViewFrame = ((UIView *)self.viewsAndSpacingsArray[5]).frame;
     
-    XCTAssertEqual(CGRectGetMinY(secondViewFrame) - CGRectGetMaxY(firstViewFrame), [self.viewsAndSpacingsArray[2] floatValue], @"Wrong vertical distance");
-    XCTAssertEqual(CGRectGetMinY(thirdViewFrame) - CGRectGetMaxY(secondViewFrame), [self.viewsAndSpacingsArray[4] floatValue], @"Wrong vertical distance");
+    XCTAssertEqualWithAccuracy(CGRectGetMinY(secondViewFrame) - CGRectGetMaxY(firstViewFrame), [self.viewsAndSpacingsArray[2] floatValue], FLT_EPSILON, @"Wrong vertical distance");
+    XCTAssertEqualWithAccuracy(CGRectGetMinY(thirdViewFrame) - CGRectGetMaxY(secondViewFrame), [self.viewsAndSpacingsArray[4] floatValue], FLT_EPSILON, @"Wrong vertical distance");
     
-    XCTAssertEqual([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, @"Wrong total height returned");
+    XCTAssertEqualWithAccuracy([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, FLT_EPSILON, @"Wrong total height returned");
 }
 
 - (void)testAlignViewsVertically_horizontalCentering {
@@ -64,11 +64,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(firstView.center.x, CGRectGetMidX(self.superView.bounds) +margin, @"Incorrect horizontal centering of subview");
-    XCTAssertEqual(secondView.center.x, CGRectGetMidX(self.superView.bounds)+margin, @"Incorrect horizontal centering of subview");
-    XCTAssertEqual(thirdView.center.x, CGRectGetMidX(self.superView.bounds)+margin, @"Incorrect horizontal centering of subview");
+    XCTAssertEqualWithAccuracy(firstView.center.x, CGRectGetMidX(self.superView.bounds) +margin, FLT_EPSILON, @"Incorrect horizontal centering of subview");
+    XCTAssertEqualWithAccuracy(secondView.center.x, CGRectGetMidX(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect horizontal centering of subview");
+    XCTAssertEqualWithAccuracy(thirdView.center.x, CGRectGetMidX(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect horizontal centering of subview");
     
-    XCTAssertEqual([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, @"Wrong total height returned");
+    XCTAssertEqualWithAccuracy([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, FLT_EPSILON, @"Wrong total height returned");
 }
 
 - (void)testAlignViewsVertically_horizontalAlignLeft {
@@ -80,11 +80,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(firstView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, @"Incorrect subview left alignment");
-    XCTAssertEqual(secondView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, @"Incorrect subview left alignment");
-    XCTAssertEqual(thirdView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, @"Incorrect subview left alignment");
+    XCTAssertEqualWithAccuracy(firstView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subview left alignment");
+    XCTAssertEqualWithAccuracy(secondView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subview left alignment");
+    XCTAssertEqualWithAccuracy(thirdView.frame.origin.x, CGRectGetMinX(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subview left alignment");
     
-    XCTAssertEqual([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, @"Wrong total height returned");
+    XCTAssertEqualWithAccuracy([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, FLT_EPSILON, @"Wrong total height returned");
 }
 
 - (void)testAlignViewsVertically_horizontalAlignRight {
@@ -96,11 +96,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(CGRectGetMaxX(firstView.frame), CGRectGetMaxX(self.superView.bounds)-margin, @"Incorrect subview right alignment");
-    XCTAssertEqual(CGRectGetMaxX(secondView.frame), CGRectGetMaxX(self.superView.bounds)-margin, @"Incorrect subview right alignment");
-    XCTAssertEqual(CGRectGetMaxX(thirdView.frame), CGRectGetMaxX(self.superView.bounds)-margin, @"Incorrect subview right alignment");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX(firstView.frame), CGRectGetMaxX(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subview right alignment");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX(secondView.frame), CGRectGetMaxX(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subview right alignment");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX(thirdView.frame), CGRectGetMaxX(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subview right alignment");
     
-    XCTAssertEqual([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, @"Wrong total height returned");
+    XCTAssertEqualWithAccuracy([self totalHeightOfViewsAndSpacings:self.viewsAndSpacingsArray], totalHeight, FLT_EPSILON, @"Wrong total height returned");
 }
 
 #pragma MARK - AlignViewsHorizontally
@@ -111,10 +111,10 @@
     CGRect secondViewFrame = ((UIView *)self.viewsAndSpacingsArray[3]).frame;
     CGRect thirdViewFrame = ((UIView *)self.viewsAndSpacingsArray[5]).frame;
     
-    XCTAssertEqual(CGRectGetMinX(secondViewFrame) - CGRectGetMaxX(firstViewFrame), [self.viewsAndSpacingsArray[2] floatValue], @"Incorrect horizontal distance)");
-    XCTAssertEqual(CGRectGetMinX(thirdViewFrame) - CGRectGetMaxX(secondViewFrame), [self.viewsAndSpacingsArray[4] floatValue], @"Incorrect horizontal distance)");
+    XCTAssertEqualWithAccuracy(CGRectGetMinX(secondViewFrame) - CGRectGetMaxX(firstViewFrame), [self.viewsAndSpacingsArray[2] floatValue], FLT_EPSILON, @"Incorrect horizontal distance)");
+    XCTAssertEqualWithAccuracy(CGRectGetMinX(thirdViewFrame) - CGRectGetMaxX(secondViewFrame), [self.viewsAndSpacingsArray[4] floatValue], FLT_EPSILON, @"Incorrect horizontal distance)");
     
-    XCTAssertEqual([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, @"Wrong total width returned");
+    XCTAssertEqualWithAccuracy([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, FLT_EPSILON, @"Wrong total width returned");
 }
 
 - (void)testAlignViewsHorizontally_verticalAlignCenter {
@@ -126,11 +126,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(CGRectGetMidY(firstView.frame), CGRectGetMidY(self.superView.bounds)+margin, @"Incorrect subviews vertical center");
-    XCTAssertEqual(CGRectGetMidY(secondView.frame), CGRectGetMidY(self.superView.bounds)+margin, @"Incorrect subviews vertical center");
-    XCTAssertEqual(CGRectGetMidY(thirdView.frame), CGRectGetMidY(self.superView.bounds)+margin, @"Incorrect subviews vertical center");
+    XCTAssertEqualWithAccuracy(CGRectGetMidY(firstView.frame), CGRectGetMidY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews vertical center");
+    XCTAssertEqualWithAccuracy(CGRectGetMidY(secondView.frame), CGRectGetMidY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews vertical center");
+    XCTAssertEqualWithAccuracy(CGRectGetMidY(thirdView.frame), CGRectGetMidY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews vertical center");
     
-    XCTAssertEqual([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, @"Wrong total width returned");
+    XCTAssertEqualWithAccuracy([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, FLT_EPSILON, @"Wrong total width returned");
 }
 
 - (void)testAlignViewsHorizontally_verticalAlignTop {
@@ -142,11 +142,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(CGRectGetMinY(firstView.frame), CGRectGetMinY(self.superView.bounds)+margin, @"Incorrect subviews top aling");
-    XCTAssertEqual(CGRectGetMinY(secondView.frame), CGRectGetMinY(self.superView.bounds)+margin, @"Incorrect subviews top aling");
-    XCTAssertEqual(CGRectGetMinY(thirdView.frame), CGRectGetMinY(self.superView.bounds)+margin, @"Incorrect subviews top aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMinY(firstView.frame), CGRectGetMinY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews top aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMinY(secondView.frame), CGRectGetMinY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews top aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMinY(thirdView.frame), CGRectGetMinY(self.superView.bounds)+margin, FLT_EPSILON, @"Incorrect subviews top aling");
     
-    XCTAssertEqual([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, @"Wrong total width returned");
+    XCTAssertEqualWithAccuracy([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, FLT_EPSILON, @"Wrong total width returned");
 }
 
 - (void)testAlignViewsHorizontally_verticalAlignBottom {
@@ -158,11 +158,11 @@
     UIView *secondView = (UIView *)self.viewsAndSpacingsArray[3];
     UIView *thirdView = (UIView *)self.viewsAndSpacingsArray[5];
     
-    XCTAssertEqual(CGRectGetMaxY(firstView.frame), CGRectGetMaxY(self.superView.bounds)-margin, @"Incorrect subviews bottom aling");
-    XCTAssertEqual(CGRectGetMaxY(secondView.frame), CGRectGetMaxY(self.superView.bounds)-margin, @"Incorrect subviews bottom aling");
-    XCTAssertEqual(CGRectGetMaxY(thirdView.frame), CGRectGetMaxY(self.superView.bounds)-margin, @"Incorrect subviews bottom aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY(firstView.frame), CGRectGetMaxY(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subviews bottom aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY(secondView.frame), CGRectGetMaxY(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subviews bottom aling");
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY(thirdView.frame), CGRectGetMaxY(self.superView.bounds)-margin, FLT_EPSILON, @"Incorrect subviews bottom aling");
     
-    XCTAssertEqual([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, @"Wrong total width returned");
+    XCTAssertEqualWithAccuracy([self totalWidthOfViewsAndSpacings:self.viewsAndSpacingsArray], totalWidth, FLT_EPSILON, @"Wrong total width returned");
 }
 
 

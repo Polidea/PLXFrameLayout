@@ -45,9 +45,9 @@
     CGFloat secondAndThirdViewVerticalDistance = CGRectGetMinY([self viewAtIndex:2].frame) - CGRectGetMaxY([self viewAtIndex:1].frame);
     CGFloat thirdViewBottomSpace = CGRectGetHeight(self.superView.bounds) - CGRectGetMaxY([self viewAtIndex:2].frame);
 
-    XCTAssertEqual(firstViewTopSpace, firstAndSecondViewVerticalDistance);
-    XCTAssertEqual(firstAndSecondViewVerticalDistance, secondAndThirdViewVerticalDistance);
-    XCTAssertEqual(secondAndThirdViewVerticalDistance, thirdViewBottomSpace);
+    XCTAssertEqualWithAccuracy(firstViewTopSpace, firstAndSecondViewVerticalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(firstAndSecondViewVerticalDistance, secondAndThirdViewVerticalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(secondAndThirdViewVerticalDistance, thirdViewBottomSpace, FLT_EPSILON);
 }
 
 - (void)testArrangeSubViewsVerticallyInSuperView {
@@ -58,9 +58,9 @@
     CGFloat secondAndThirdViewVerticalDistance = CGRectGetMinY([self viewAtIndex:2].frame) - CGRectGetMaxY([self viewAtIndex:1].frame);
     CGFloat thirdViewBottomSpace = CGRectGetMaxY(self.superView.bounds) - CGRectGetMaxY([self viewAtIndex:2].frame);
     
-    XCTAssertEqual(firstViewTopSpace, 0);
-    XCTAssertEqual(firstAndSecondViewVerticalDistance, secondAndThirdViewVerticalDistance);
-    XCTAssertEqual(thirdViewBottomSpace, 0);
+    XCTAssertEqualWithAccuracy(firstViewTopSpace, 0, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(firstAndSecondViewVerticalDistance, secondAndThirdViewVerticalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(thirdViewBottomSpace, 0, FLT_EPSILON);
 }
 
 
@@ -72,9 +72,9 @@
     CGFloat secondAndThirdViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:2].frame) - CGRectGetMaxX([self viewAtIndex:1].frame);
     CGFloat thirdViewTrailingSpace = CGRectGetWidth(self.superView.bounds) - CGRectGetMaxX([self viewAtIndex:2].frame);
     
-    XCTAssertEqual(firstViewLeadingSpace, firstAndSecondViewHorizontalDistance);
-    XCTAssertEqual(firstAndSecondViewHorizontalDistance, secondAndThirdViewHorizontalDistance);
-    XCTAssertEqual(secondAndThirdViewHorizontalDistance, thirdViewTrailingSpace);
+    XCTAssertEqualWithAccuracy(firstViewLeadingSpace, firstAndSecondViewHorizontalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(firstAndSecondViewHorizontalDistance, secondAndThirdViewHorizontalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(secondAndThirdViewHorizontalDistance, thirdViewTrailingSpace, FLT_EPSILON);
 }
 
 - (void)testArrangeSubViewsHorizontallyInSuperView {
@@ -85,9 +85,9 @@
     CGFloat secondAndThirdViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:2].frame) - CGRectGetMaxX([self viewAtIndex:1].frame);
     CGFloat thirdViewTrailingSpace = CGRectGetWidth(self.superView.bounds) - CGRectGetMaxX([self viewAtIndex:2].frame);
     
-    XCTAssertEqual(firstViewLeadingSpace, 0);
-    XCTAssertEqual(firstAndSecondViewHorizontalDistance, secondAndThirdViewHorizontalDistance);
-    XCTAssertEqual(thirdViewTrailingSpace, 0);
+    XCTAssertEqualWithAccuracy(firstViewLeadingSpace, 0, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(firstAndSecondViewHorizontalDistance, secondAndThirdViewHorizontalDistance, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(thirdViewTrailingSpace, 0, FLT_EPSILON);
 }
 
 - (void)testFillSuperViewVerticallyWithViews{
@@ -99,11 +99,11 @@
         allSubviewsHeights += CGRectGetHeight(subview.bounds);
     }
     
-    XCTAssertEqual(CGRectGetHeight(self.superView.bounds), allSubviewsHeights);
-    XCTAssertEqual(CGRectGetMinY([self viewAtIndex:0].frame), 0);
-    XCTAssertEqual(CGRectGetMaxY([self viewAtIndex:0].frame), CGRectGetMinY([self viewAtIndex:1].frame));
-    XCTAssertEqual(CGRectGetMaxY([self viewAtIndex:1].frame), CGRectGetMinY([self viewAtIndex:2].frame));
-    XCTAssertEqual(CGRectGetMaxY([self viewAtIndex:2].frame), CGRectGetHeight(self.superView.bounds));
+    XCTAssertEqualWithAccuracy(CGRectGetHeight(self.superView.bounds), allSubviewsHeights, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMinY([self viewAtIndex:0].frame), 0, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY([self viewAtIndex:0].frame), CGRectGetMinY([self viewAtIndex:1].frame), FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY([self viewAtIndex:1].frame), CGRectGetMinY([self viewAtIndex:2].frame), FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxY([self viewAtIndex:2].frame), CGRectGetHeight(self.superView.bounds), FLT_EPSILON);
 }
 
 - (void)testFillSuperViewHorizontallyWithViews{
@@ -115,11 +115,11 @@
         allSubviewsWidths += CGRectGetWidth(subview.bounds);
     }
     
-    XCTAssertEqual(CGRectGetWidth(self.superView.bounds), allSubviewsWidths);
-    XCTAssertEqual(CGRectGetMinX([self viewAtIndex:0].frame), 0);
-    XCTAssertEqual(CGRectGetMaxX([self viewAtIndex:0].frame), CGRectGetMinX([self viewAtIndex:1].frame));
-    XCTAssertEqual(CGRectGetMaxX([self viewAtIndex:1].frame), CGRectGetMinX([self viewAtIndex:2].frame));
-    XCTAssertEqual(CGRectGetMaxX([self viewAtIndex:2].frame), CGRectGetWidth(self.superView.bounds));
+    XCTAssertEqualWithAccuracy(CGRectGetWidth(self.superView.bounds), allSubviewsWidths, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMinX([self viewAtIndex:0].frame), 0, FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX([self viewAtIndex:0].frame), CGRectGetMinX([self viewAtIndex:1].frame), FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX([self viewAtIndex:1].frame), CGRectGetMinX([self viewAtIndex:2].frame), FLT_EPSILON);
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX([self viewAtIndex:2].frame), CGRectGetWidth(self.superView.bounds), FLT_EPSILON);
 }
 
 - (UIView *)viewAtIndex:(NSUInteger)index {
