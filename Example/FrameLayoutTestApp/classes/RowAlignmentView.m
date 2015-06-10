@@ -47,23 +47,23 @@ static const CGFloat ItemsHorizontalSpacing = 10.0;
 }
 
 - (NSArray *)verticalItemsWithSize:(CGSize)size {
-    return [self viewsAlignmentArrayWithCapacity:NumberOfVerticalItems
-                                  withBuildBlock:^UIView * {
-                                      UIView *subview = [ColorSubviewFactory greenView];
-                                      subview.pl_size = size;
-                                      return subview;
-                                  }
-                                  defaultSpacing:ItemsVerticalSpacing];
+    return [UIView viewsAlignmentArrayWithCapacity:NumberOfVerticalItems
+                                    withBuildBlock:^UIView * {
+                                        UIView *subview = [ColorSubviewFactory greenView];
+                                        subview.pl_size = size;
+                                        return subview;
+                                    }
+                                    defaultSpacing:ItemsVerticalSpacing];
 }
 
 - (NSArray *)horizontalItemsWithSize:(CGSize)size {
-    return [self viewsAlignmentArrayWithCapacity:NumberOfHorizontalItems
-                                  withBuildBlock:^UIView * {
-                                      UIView *subview = [ColorSubviewFactory yellowView];
-                                      subview.pl_size = size;
-                                      return subview;
-                                  }
-                                  defaultSpacing:ItemsHorizontalSpacing];
+    return [UIView viewsAlignmentArrayWithCapacity:NumberOfHorizontalItems
+                                    withBuildBlock:^UIView * {
+                                        UIView *subview = [ColorSubviewFactory yellowView];
+                                        subview.pl_size = size;
+                                        return subview;
+                                    }
+                                    defaultSpacing:ItemsHorizontalSpacing];
 }
 
 @end
