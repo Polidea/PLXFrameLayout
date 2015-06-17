@@ -58,7 +58,7 @@
 #pragma mark - Batch Align
 
 - (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings {
-    return [self pl_alignViewsVerticallyCentering:viewsAndSpacings];
+    return [self pl_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
 }
 
 - (CGFloat)pl_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
@@ -96,6 +96,8 @@
             case NSLayoutAttributeRight:
             case NSLayoutAttributeCenterX:
                 [view pl_alignTo:attribute ofView:self withMargin:marginFromAttribute];
+                break;
+            case NSLayoutAttributeNotAnAttribute:
                 break;
             default:
                 @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
@@ -136,6 +138,8 @@
             case NSLayoutAttributeBottom:
             case NSLayoutAttributeCenterY:
                 [view pl_alignTo:attribute ofView:self withMargin:marginFromAttribute];
+                break;
+            case NSLayoutAttributeNotAnAttribute:
                 break;
             default:
                 @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
