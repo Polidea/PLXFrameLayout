@@ -36,11 +36,21 @@ To make sure that superview's frame is already set, you should place all methods
 Aligning to top-left corner with 50 points margin:
 
 ```
-CGSize viewSize = CGSizeMake(70.0, 70.0);
-UIView *view = [[UIView alloc] init];
-view.pl_size = viewSize;
-[view pl_alignToSuperView:NSLayoutAttributeTop withMargin:50.0];
-[view pl_alignToSuperView:NSLayoutAttributeLeft withMargin:50.0];
+- (instancetype)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self) {
+		UIView *view = [UIView	new]; // Calls `initWithFrame:CGRectZero` by default.
+		[self addSubviews:view];
+		self.myView = view;
+	}
+}
+
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	self.myView.pl_size = CGSizeMake(70.0, 70.0);
+	[self.myView pl_alignToSuperView:NSLayoutAttributeTop withMargin:50.0];
+	[self.myView pl_alignToSuperView:NSLayoutAttributeLeft withMargin:50.0];
+}
 ```
 
 For more, see example app.
