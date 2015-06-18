@@ -39,7 +39,7 @@ Aligning to top-left corner with 50 points margin:
 - (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
-		UIView *view = [UIView	new]; // Calls `initWithFrame:CGRectZero` by default.
+		UIView *view = [UIView new]; // Calls `initWithFrame:CGRectZero` by default.
 		[self addSubviews:view];
 		self.myView = view;
 	}
@@ -56,7 +56,7 @@ Aligning to top-left corner with 50 points margin:
 For more, see example app.
 
 ###Contribution
-**Frame Layout** project is on early stage. Feel free to contributing by pull requests.
+**Frame Layout** project is on early stage. Feel free to contribute by pull requests.
 
 ###License
 **FrameLayout** is released under a MIT License. See LICENSE file for details.
