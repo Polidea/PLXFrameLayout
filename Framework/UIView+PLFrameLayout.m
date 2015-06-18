@@ -257,26 +257,26 @@
 
 #pragma mark - Edges
 
-- (void)pl_pinToSuperViewEdges {
+- (void)pl_expandToSuperViewEdges {
     self.frame = self.superview.bounds;
 }
 
-- (void)pl_pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_pinToSuperViewHorizontalEdgesWithInsets:insets];
-    [self pl_pinToSuperViewVerticalEdgesWithInsets:insets];
+- (void)pl_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_expandToSuperViewHorizontalEdgesWithInsets:insets];
+    [self pl_expandToSuperViewVerticalEdgesWithInsets:insets];
 }
 
-- (void)pl_pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_pinToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
-    [self pl_pinToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
+- (void)pl_expandToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_expandToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
+    [self pl_expandToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
 }
 
-- (void)pl_pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_pinToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
-    [self pl_pinToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
+- (void)pl_expandToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self pl_expandToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
+    [self pl_expandToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
 }
 
-- (void)pl_pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
+- (void)pl_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
     CGRect frame = self.frame;
     switch (edge) {
         case NSLayoutAttributeLeft: {

@@ -37,28 +37,28 @@
 
 -(void)testPinToSuperViewEdges_top{
     CGFloat topInset = 17;
-    [self.subView pl_pinToSuperViewEdge:NSLayoutAttributeTop withInset:topInset];
+    [self.subView pl_expandToSuperViewEdge:NSLayoutAttributeTop withInset:topInset];
     XCTAssertEqualWithAccuracy(CGRectGetMaxY(self.subView.frame), CGRectGetMaxY(self.originalSubviewRect), FLT_EPSILON);
     XCTAssertEqualWithAccuracy(CGRectGetMinY(self.subView.frame), CGRectGetMinX(self.superView.bounds) + topInset, FLT_EPSILON);
 }
 
 -(void)testPinToSuperViewEdges_bottom{
     CGFloat bottomInset = 11;
-    [self.subView pl_pinToSuperViewEdge:NSLayoutAttributeBottom withInset:bottomInset];
+    [self.subView pl_expandToSuperViewEdge:NSLayoutAttributeBottom withInset:bottomInset];
     XCTAssertEqualWithAccuracy(CGRectGetMinY(self.subView.frame), CGRectGetMinY(self.originalSubviewRect), FLT_EPSILON);
     XCTAssertEqualWithAccuracy(CGRectGetMaxY(self.subView.frame), CGRectGetMaxY(self.superView.bounds) - bottomInset, FLT_EPSILON);
 }
 
 -(void)testPinToSuperViewEdges_left{
     CGFloat leftInset = 13;
-    [self.subView pl_pinToSuperViewEdge:NSLayoutAttributeLeft withInset:leftInset];
+    [self.subView pl_expandToSuperViewEdge:NSLayoutAttributeLeft withInset:leftInset];
     XCTAssertEqualWithAccuracy(CGRectGetMinX(self.subView.frame), CGRectGetMinX(self.superView.bounds) + leftInset, FLT_EPSILON);
     XCTAssertEqualWithAccuracy(CGRectGetMaxX(self.subView.frame), CGRectGetMaxX(self.originalSubviewRect), FLT_EPSILON);
 }
 
 -(void)testPinToSuperViewEdges_right{
     CGFloat rightInset = 3;
-    [self.subView pl_pinToSuperViewEdge:NSLayoutAttributeRight withInset:rightInset];
+    [self.subView pl_expandToSuperViewEdge:NSLayoutAttributeRight withInset:rightInset];
     XCTAssertEqualWithAccuracy(CGRectGetMinX(self.subView.frame), CGRectGetMinX(self.originalSubviewRect), FLT_EPSILON);
     XCTAssertEqualWithAccuracy(CGRectGetMaxX(self.subView.frame), CGRectGetMaxX(self.superView.bounds)-rightInset, FLT_EPSILON);
 }

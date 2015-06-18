@@ -75,9 +75,9 @@
     [super layoutSubviews];
 
     //containers
-    [_topContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_middleContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_bottomContainer pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_topContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_middleContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_bottomContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
 
     _topContainer.pl_height = 75;
     _bottomContainer.pl_height = 75;
@@ -94,9 +94,9 @@
     [_topRightView pl_centerYInSuperView];
     [_topRightView pl_alignToSuperView:NSLayoutAttributeRight withMargin:10];
 
-    [_centerView pl_pinToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [_centerView pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     [_centerView pl_centerXInSuperView];
-    [_centerView pl_pinToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
+    [_centerView pl_expandToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
 
 
     _leftBottomButton.pl_size = CGSizeMake(50, 50);

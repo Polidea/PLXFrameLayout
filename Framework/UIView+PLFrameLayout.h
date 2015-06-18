@@ -23,12 +23,12 @@
 - (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter;
 - (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute;
 
-- (void)pl_pinToSuperViewEdges;
-- (void)pl_pinToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_expandToSuperViewEdges;
+- (void)pl_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
 
-- (void)pl_pinToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets;
-- (void)pl_pinToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets;
-- (void)pl_pinToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset;
+- (void)pl_expandToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_expandToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets;
+- (void)pl_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset;
 
 - (void)pl_centerXInSuperView;
 - (void)pl_centerYInSuperView;
