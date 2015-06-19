@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FrameLayout"
-  s.version          = “0.1.1”
+  s.version          = "0.1"
   s.homepage         = "https://github.com/Polidea/FrameLayout"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Pawel Scibek" => "pawel.scibek@polidea.com" }
@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files     = 'Framework/**/*'
 
-  s.summary          = "API for settings UIView’s frames using relative positions and alignments instead of CGRects"
+  s.summary          = "FrameLayout is a tool for positioning, sizing and arranging views without using CGRects."
 end
