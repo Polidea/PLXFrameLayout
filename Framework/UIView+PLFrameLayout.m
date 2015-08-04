@@ -282,7 +282,9 @@
         case NSLayoutAttributeLeft: {
             CGFloat xDelta = CGRectGetMinX(frame) - inset;
             frame.origin.x = 0 + inset;
-            frame.size.width += xDelta;
+            if (frame.size.width >= fabs(xDelta)) {
+                frame.size.width += xDelta;
+            }
             break;
         }
         case NSLayoutAttributeRight: {
@@ -294,7 +296,9 @@
         case NSLayoutAttributeTop: {
             CGFloat yDelta = CGRectGetMinY(frame) - inset;
             frame.origin.y = 0 + inset;
-            frame.size.height += yDelta;
+            if (frame.size.height >= fabs(yDelta)) {
+                frame.size.height += yDelta;
+            }
             break;
         }
         case NSLayoutAttributeBottom: {
