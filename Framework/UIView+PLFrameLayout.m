@@ -375,7 +375,7 @@
 
 - (void)pl_placeAbove:(UIView *)view withMargin:(CGFloat)margin {
     CGRect frame = self.frame;
-    frame.origin.y = CGRectGetMinY(view.bounds) - CGRectGetHeight(frame) - margin;
+    frame.origin.y = CGRectGetMinY(view.frame) - CGRectGetHeight(frame) - margin;
     self.frame = frame;
 }
 
