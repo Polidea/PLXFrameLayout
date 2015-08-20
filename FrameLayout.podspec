@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FrameLayout"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.homepage         = "https://github.com/Polidea/FrameLayout"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Pawel Scibek" => "pawel.scibek@polidea.com" }
