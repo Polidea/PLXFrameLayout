@@ -131,9 +131,8 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        __unused BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
-        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        NSAssert(![viewOrSpacing isKindOfClass:[UIView class]] || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
             previousSpacing = viewOrSpacing;
             continue;
@@ -187,9 +186,8 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        __unused BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
-        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        NSAssert(![viewOrSpacing isKindOfClass:[UIView class]] || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
             previousSpacing = viewOrSpacing;
             continue;
@@ -232,9 +230,8 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     __block CGFloat allNonExpandableViewsHeight = 0;
 
     [viewsAndSpacings enumerateObjectsUsingBlock:^(id viewOrSpacing, NSUInteger idx, BOOL *stop) {
-        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
-        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        NSAssert(![viewOrSpacing isKindOfClass:[UIView class]] || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
             allNonExpandableViewsHeight += [viewOrSpacing floatValue];
             if (idx == 0) {
@@ -266,9 +263,8 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     __block CGFloat allNonExpandableViewsWidth = 0;
 
     [viewsAndSpacings enumerateObjectsUsingBlock:^(id viewOrSpacing, NSUInteger idx, BOOL *stop) {
-        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
-        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        NSAssert(![viewOrSpacing isKindOfClass:[UIView class]] || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
             allNonExpandableViewsWidth += [viewOrSpacing floatValue];
             if (idx == 0) {
