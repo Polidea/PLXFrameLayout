@@ -7,6 +7,8 @@
 
 @implementation UIView (PLXFrameLayout)
 
+#pragma mark - MinY
+
 - (CGFloat)pl_minY {
     return CGRectGetMinY(self.frame);
 }
@@ -17,6 +19,20 @@
     self.frame = frame;
 }
 
+#pragma mark - MidY
+
+- (CGFloat)pl_midY {
+    return CGRectGetMidY(self.frame);
+}
+
+- (void)pl_setMidY:(CGFloat)midY {
+    CGRect frame = self.frame;
+    frame.origin.y = midY - frame.size.height * 0.5f;
+    self.frame = frame;
+}
+
+#pragma mark - MaxY
+
 - (CGFloat)pl_maxY {
     return CGRectGetMaxY(self.frame);
 }
@@ -24,6 +40,42 @@
 - (void)pl_setMaxY:(CGFloat)maxY {
     CGRect frame = self.frame;
     frame.origin.y = maxY - frame.size.height;
+    self.frame = frame;
+}
+
+#pragma mark - MinX
+
+- (CGFloat)pl_minX {
+    return CGRectGetMinX(self.frame);
+}
+
+- (void)pl_setMinX:(CGFloat)minX {
+    CGRect frame = self.frame;
+    frame.origin.x = minX;
+    self.frame = frame;
+}
+
+#pragma mark - MidX
+
+- (CGFloat)pl_midX {
+    return CGRectGetMidX(self.frame);
+}
+
+- (void)pl_setMidX:(CGFloat)midX {
+    CGRect frame = self.frame;
+    frame.origin.x = midX - frame.size.width * 0.5f;
+    self.frame = frame;
+}
+
+#pragma mark - MaxX
+
+- (CGFloat)pl_maxX {
+    return CGRectGetMaxX(self.frame);
+}
+
+- (void)pl_setMaxX:(CGFloat)maxX {
+    CGRect frame = self.frame;
+    frame.origin.x = maxX - frame.size.width;
     self.frame = frame;
 }
 
