@@ -7,7 +7,7 @@
 //
 
 #import "EdgeAlignmentView.h"
-#import "UIView+PLFrameLayout.h"
+#import "UIView+PLXFrameLayout.h"
 #import "ColorSubviewFactory.h"
 
 @implementation EdgeAlignmentView {

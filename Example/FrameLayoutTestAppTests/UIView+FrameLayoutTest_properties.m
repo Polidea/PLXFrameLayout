@@ -4,7 +4,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "UIView+PLFrameLayout.h"
+#import "UIView+PLXFrameLayout.h"
 
 @interface UIView_FrameLayoutTest_properties : XCTestCase
 @property(nonatomic, strong, readonly) UIView *view;

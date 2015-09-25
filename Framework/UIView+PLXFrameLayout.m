@@ -3,9 +3,9 @@
 // Copyright (c) 2015 polidea.com. All rights reserved.
 //
 
-#import "UIView+PLFrameLayout.h"
+#import "UIView+PLXFrameLayout.h"
 
-@implementation UIView (PLFrameLayout)
+@implementation UIView (PLXFrameLayout)
 
 - (CGFloat)pl_minY {
     return CGRectGetMinY(self.frame);

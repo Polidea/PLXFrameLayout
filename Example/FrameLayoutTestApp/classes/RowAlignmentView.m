@@ -7,7 +7,7 @@
 //
 
 #import "RowAlignmentView.h"
-#import "UIView+PLFrameLayout.h"
+#import "UIView+PLXFrameLayout.h"
 #import "ColorSubviewFactory.h"
 #import "UIView+Utilities.h"
 

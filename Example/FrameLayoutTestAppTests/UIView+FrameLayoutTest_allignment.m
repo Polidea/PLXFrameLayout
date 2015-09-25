@@ -3,16 +3,16 @@
 //  Copyright (c) 2015 Polidea. All rights reserved.
 //
 
-#import "UIView+PLFrameLayout.h"
+#import "UIView+PLXFrameLayout.h"
 #import <XCTest/XCTest.h>
 #import "UIView+Utilities.h"
 
-@interface UIView_FrameLayoutTest_Allignment : XCTestCase
+@interface UIView_FrameLayoutTest_Alignment : XCTestCase
 @property(nonatomic, strong, readonly) NSArray *viewsAndSpacingsArray;
 @property(nonatomic, strong, readonly) UIView *superView;
 @end
 
-@implementation UIView_FrameLayoutTest_Allignment
+@implementation UIView_FrameLayoutTest_Alignment
 
 - (void)setUp {
     [super setUp];

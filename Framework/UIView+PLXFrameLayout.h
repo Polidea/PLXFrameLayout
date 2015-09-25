@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface UIView (PLFrameLayout)
+@interface UIView (PLXFrameLayout)
 @property(nonatomic, assign) CGFloat pl_minY;
 @property(nonatomic, assign) CGFloat pl_maxY;
 @property(nonatomic, assign) CGSize pl_size;
