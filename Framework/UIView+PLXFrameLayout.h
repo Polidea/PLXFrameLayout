@@ -71,4 +71,12 @@
 - (void)pl_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins;
 - (void)pl_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin;
 
+#pragma mark - Deprecated
+
+- (void)pl_fillSuperViewVerticallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews __attribute__((deprecated("Use -pl_fillSuperViewVertically:expandableViews: instead.")));
+- (void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews __attribute__((deprecated("Use -pl_fillSuperViewHorizontally:expandableViews: instead.")));
+
+- (void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces __attribute__((deprecated("Use -pl_distributeSubviewsVerticallyInSuperView:withTopAndBottomMargin: instead.")));
+- (void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTrailingSpaces __attribute__((deprecated("Use -pl_distributeSubviewsHorizontallyInSuperView:withTopAndBottomMargin: instead.")));
+
 @end

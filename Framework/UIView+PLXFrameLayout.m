@@ -559,4 +559,22 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     }
 }
 
+#pragma mark - Deprecated
+
+- (void)pl_fillSuperViewVerticallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
+    [self pl_fillSuperViewVertically:views expandableViews:expandableViews.allObjects];
+}
+
+- (void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
+    [self pl_fillSuperViewHorizontally:views expandableViews:expandableViews.allObjects];
+}
+
+- (void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces {
+    [self pl_distributeSubviewsVerticallyInSuperView:subviews withTopAndBottomMargin:topAndBottomSpaces];
+}
+
+- (void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTrailingSpaces {
+    [self pl_distributeSubviewsHorizontallyInSuperView:subviews withLeftAndRightMargin:leadingAndTrailingSpaces];
+}
+
 @end
