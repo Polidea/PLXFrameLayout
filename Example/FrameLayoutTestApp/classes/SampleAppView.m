@@ -82,8 +82,8 @@
     _topContainer.pl_height = 75;
     _bottomContainer.pl_height = 75;
 
-    [self pl_fillSuperViewVerticallyWithViews:@[_topContainer, _middleContainer, _bottomContainer]
-                              expandableViews:[NSSet setWithArray:@[_middleContainer]]];
+    [self pl_fillSuperViewVertically:@[_topContainer, _middleContainer, _bottomContainer]
+                     expandableViews:@[_middleContainer]];
 
     //containers content
     _topLeftView.pl_size = CGSizeMake(50, 50);

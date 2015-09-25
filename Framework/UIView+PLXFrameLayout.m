@@ -131,7 +131,6 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        __unused
         BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
         NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
@@ -188,7 +187,6 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        __unused
         BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
         NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
@@ -228,11 +226,28 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
 
 #pragma mark - Fill superviews
 
-- (void)pl_fillSuperViewVerticallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
-    CGFloat allNonExpandableViewsHeight = 0;
-    for (UIView *view in views) {
-        allNonExpandableViewsHeight += [expandableViews containsObject:view] ? 0 : view.pl_height; //expandable doesn't count
-    }
+- (void)pl_fillSuperViewVertically:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
+    __block UIView *firstView = nil;
+    __block NSNumber *firstSpacing = nil;
+    __block CGFloat allNonExpandableViewsHeight = 0;
+
+    [viewsAndSpacings enumerateObjectsUsingBlock:^(id viewOrSpacing, NSUInteger idx, BOOL *stop) {
+        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
+        BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
+        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        if (isSpacing) {
+            allNonExpandableViewsHeight += [viewOrSpacing floatValue];
+            if (idx == 0) {
+                firstSpacing = [viewOrSpacing copy];
+            }
+        } else {
+            BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
+            allNonExpandableViewsHeight += isExpandableView ? 0 : [(UIView *) viewOrSpacing pl_height];
+            if (!firstView) {
+                firstView = viewOrSpacing;
+            }
+        }
+    }];
 
     CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - allNonExpandableViewsHeight;
     CGFloat heightForSingleExpandableView = freeVerticalSpace / (CGFloat) expandableViews.count;
@@ -241,16 +256,32 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
         expandableView.pl_height = heightForSingleExpandableView;
     }
 
-    UIView *firstView = views.firstObject;
-    [firstView pl_alignTo:NSLayoutAttributeTop ofView:self withMargin:0];
-    [self pl_alignViewsVertically:views];
+    [firstView pl_alignTo:NSLayoutAttributeTop ofView:self withMargin:firstSpacing.floatValue];
+    [self pl_alignViewsVertically:viewsAndSpacings];
 }
 
-- (void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
-    CGFloat allNonExpandableViewsWidth = 0;
-    for (UIView *view in views) {
-        allNonExpandableViewsWidth += [expandableViews containsObject:view] ? 0 : view.pl_width; //expandable doesn't count
-    }
+- (void)pl_fillSuperViewHorizontally:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
+    __block UIView *firstView = nil;
+    __block NSNumber *firstSpacing = nil;
+    __block CGFloat allNonExpandableViewsWidth = 0;
+
+    [viewsAndSpacings enumerateObjectsUsingBlock:^(id viewOrSpacing, NSUInteger idx, BOOL *stop) {
+        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
+        BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
+        NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
+        if (isSpacing) {
+            allNonExpandableViewsWidth += [viewOrSpacing floatValue];
+            if (idx == 0) {
+                firstSpacing = [viewOrSpacing copy];
+            }
+        } else {
+            BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
+            allNonExpandableViewsWidth += isExpandableView ? 0 : [(UIView *) viewOrSpacing pl_width];
+            if (!firstView) {
+                firstView = viewOrSpacing;
+            }
+        }
+    }];
 
     CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - allNonExpandableViewsWidth;
     CGFloat widthForSingleExpandableView = freeHorizontalSpace / (CGFloat) expandableViews.count;
@@ -259,9 +290,8 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
         expandableView.pl_width = widthForSingleExpandableView;
     }
 
-    UIView *firstView = views.firstObject;
-    [firstView pl_alignTo:NSLayoutAttributeLeft ofView:self withMargin:0];
-    [self pl_alignViewsHorizontally:views centeringWithMargin:0];
+    [firstView pl_alignTo:NSLayoutAttributeLeft ofView:self withMargin:firstSpacing.floatValue];
+    [self pl_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
 }
 
 #pragma mark - Arrange superviews
