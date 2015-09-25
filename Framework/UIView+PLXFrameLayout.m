@@ -5,6 +5,9 @@
 
 #import "UIView+PLXFrameLayout.h"
 
+static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionName = @"PLLayoutUnsupportedAttributeException";
+static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"This attribute is not supported.";
+
 @implementation UIView (PLXFrameLayout)
 
 #pragma mark - MinY
@@ -109,6 +112,8 @@
 
 #pragma mark - Batch Align
 
+#pragma mark - Vertical
+
 - (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings {
     return [self pl_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
 }
@@ -153,11 +158,22 @@
             case NSLayoutAttributeNotAnAttribute:
                 break;
             default:
-                @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+                @throw [NSException exceptionWithName:PLXFrameLayoutNotSupportedAttributeExceptionName
+                                               reason:PLXFrameLayoutNotSupportedAttributeExceptionReason
                                              userInfo:nil];
         }
     }
     return height;
+}
+
+#pragma mark - Horizontal
+
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings {
+    return [self pl_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
+}
+
+- (CGFloat)pl_alignViewsHorizontallyCentering:(NSArray *)viewsAndSpacings {
+    return [self pl_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
 }
 
 - (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
@@ -196,7 +212,8 @@
             case NSLayoutAttributeNotAnAttribute:
                 break;
             default:
-                @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+                @throw [NSException exceptionWithName:PLXFrameLayoutNotSupportedAttributeExceptionName
+                                               reason:PLXFrameLayoutNotSupportedAttributeExceptionReason
                                              userInfo:nil];
         }
     }
@@ -243,7 +260,7 @@
 
 #pragma mark - Arrange superviews
 
-- (void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces {
+- (void)pl_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins {
     CGFloat subviewsTotalHeight = 0;
     for (UIView *view in subviews) {
         subviewsTotalHeight += CGRectGetHeight(view.bounds);
@@ -251,7 +268,7 @@
 
     CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - subviewsTotalHeight;
 
-    NSInteger numberOfSpacers = topAndBottomSpaces ? subviews.count - 1 + 2 : subviews.count - 1;
+    NSInteger numberOfSpacers = shouldAddTopAndBottomMargins ? subviews.count - 1 + 2 : subviews.count - 1;
     CGFloat spacerHeight = freeVerticalSpace / numberOfSpacers;
 
     NSMutableArray *viewsAndSpacers = [[NSMutableArray alloc] init];
@@ -265,7 +282,7 @@
         }
     }];
 
-    if (topAndBottomSpaces) {
+    if (shouldAddTopAndBottomMargins) {
         [viewsAndSpacers insertObject:@(spacerHeight) atIndex:0];
         [viewsAndSpacers addObject:@(spacerHeight)];
     }
@@ -276,7 +293,7 @@
     [self pl_alignViewsVertically:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
 }
 
-- (void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTralingSpaces {
+- (void)pl_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin {
     CGFloat subviewsTotalWidth = 0;
     for (UIView *view in subviews) {
         subviewsTotalWidth += CGRectGetWidth(view.bounds);
@@ -284,7 +301,7 @@
 
     CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - subviewsTotalWidth;
 
-    NSInteger numberOfSpacers = leadingAndTralingSpaces ? subviews.count - 1 + 2 : subviews.count - 1;
+    NSInteger numberOfSpacers = shouldAddLeftAndRightMargin ? subviews.count - 1 + 2 : subviews.count - 1;
     CGFloat spacerWidth = freeHorizontalSpace / numberOfSpacers;
 
     NSMutableArray *viewsAndSpacers = [[NSMutableArray alloc] init];
@@ -298,7 +315,7 @@
         }
     }];
 
-    if (leadingAndTralingSpaces) {
+    if (shouldAddLeftAndRightMargin) {
         [viewsAndSpacers insertObject:@(spacerWidth) atIndex:0];
         [viewsAndSpacers addObject:@(spacerWidth)];
     }
@@ -306,7 +323,7 @@
     UIView *firstSubview = subviews.firstObject;
     [firstSubview pl_alignTo:NSLayoutAttributeLeft ofView:self withMargin:0];
 
-    [self pl_alignViewsHorizontally:viewsAndSpacers additionallyAligningTo:NSLayoutAttributeCenterY withMargin:0];
+    [self pl_alignViewsHorizontally:viewsAndSpacers];
 }
 
 #pragma mark - Edges
@@ -369,12 +386,26 @@
 
 #pragma mark - Center
 
+#pragma mark - Relative
+
+- (void)pl_alignToCenterOfView:(UIView *)view {
+    [self pl_alignToCenterXOfView:view];
+    [self pl_alignToCenterYOfView:view];
+}
+
 - (void)pl_alignToCenterXOfView:(UIView *)view {
     [self pl_alignTo:NSLayoutAttributeCenterX ofView:view withMargin:0];
 }
 
 - (void)pl_alignToCenterYOfView:(UIView *)view {
     [self pl_alignTo:NSLayoutAttributeCenterY ofView:view withMargin:0];
+}
+
+#pragma mark - Absolute
+
+- (void)pl_centerInSuperView {
+    [self pl_centerXInSuperView];
+    [self pl_centerYInSuperView];
 }
 
 - (void)pl_centerXInSuperView {
@@ -477,7 +508,8 @@
             frame.origin.y = CGRectGetMidY(otherBounds) - CGRectGetHeight(frame) * 0.5f + margin;
             break;
         default:
-            @throw [NSException exceptionWithName:@"PLLayoutUnsupportedAttributeException" reason:@"This attribute is not supported."
+            @throw [NSException exceptionWithName:PLXFrameLayoutNotSupportedAttributeExceptionName
+                                           reason:PLXFrameLayoutNotSupportedAttributeExceptionReason
                                          userInfo:nil];
     }
     self.frame = frame;

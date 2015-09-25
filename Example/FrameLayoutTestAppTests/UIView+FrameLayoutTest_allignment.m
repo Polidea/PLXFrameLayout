@@ -105,8 +105,7 @@
 #pragma MARK - AlignViewsHorizontally
 
 - (void)testAlignViewsHorizontally_horizontalDistance {
-    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.viewsAndSpacingsArray
-                                            additionallyAligningTo:NSLayoutAttributeCenterY withMargin:0];
+    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.viewsAndSpacingsArray];
 
     CGRect firstViewFrame = [self.viewsAndSpacingsArray[1] frame];
     CGRect secondViewFrame = [self.viewsAndSpacingsArray[3] frame];

@@ -38,7 +38,7 @@
 }
 
 - (void)testArrangeSubViewsVerticallyInSuperView_withTopBottomSpaces {
-    [self.superView pl_arrangeSubViewsVerticallyInSuperView:self.subViewsArray addTopAndBottomSpaces:YES];
+    [self.superView pl_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:YES];
     
     CGFloat firstViewTopSpace = CGRectGetMinY([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewVerticalDistance = CGRectGetMinY([self viewAtIndex:1].frame) - CGRectGetMaxY([self viewAtIndex:0].frame);
@@ -51,7 +51,7 @@
 }
 
 - (void)testArrangeSubViewsVerticallyInSuperView {
-    [self.superView pl_arrangeSubViewsVerticallyInSuperView:self.subViewsArray addTopAndBottomSpaces:NO];
+    [self.superView pl_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:NO];
     
     CGFloat firstViewTopSpace = CGRectGetMinY([self viewAtIndex:0].frame) - CGRectGetMinY(self.superView.bounds);
     CGFloat firstAndSecondViewVerticalDistance = CGRectGetMinY([self viewAtIndex:1].frame) - CGRectGetMaxY([self viewAtIndex:0].frame);
@@ -65,7 +65,7 @@
 
 
 - (void)testArrangeSubViewsHorizontallyInSuperView_withLeadingAndTralinSpaces {
-    [self.superView pl_arrangeSubViewsHorizontallyInSuperView:self.subViewsArray addLeadingAndTrailingSpaces:YES];
+    [self.superView pl_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:YES];
     
     CGFloat firstViewLeadingSpace = CGRectGetMinX([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:1].frame) - CGRectGetMaxX([self viewAtIndex:0].frame);
@@ -78,7 +78,7 @@
 }
 
 - (void)testArrangeSubViewsHorizontallyInSuperView {
-    [self.superView pl_arrangeSubViewsHorizontallyInSuperView:self.subViewsArray addLeadingAndTrailingSpaces:NO];
+    [self.superView pl_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:NO];
     
     CGFloat firstViewLeadingSpace = CGRectGetMinX([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:1].frame) - CGRectGetMaxX([self viewAtIndex:0].frame);
