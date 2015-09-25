@@ -28,7 +28,7 @@
     CGFloat newMinY = 12;
     expectedFrame.origin.y = newMinY;
     
-    [self.view setPl_minY:newMinY];
+    [self.view pl_setMinY:newMinY];
     
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
@@ -44,7 +44,7 @@
     CGFloat shift = newMaxY - CGRectGetMaxY(self.view.frame);
     expectedFrame.origin.y += shift;
     
-    [self.view setPl_maxY:newMaxY];
+    [self.view pl_setMaxY:newMaxY];
     
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }

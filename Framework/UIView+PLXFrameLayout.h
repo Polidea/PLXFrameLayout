@@ -7,11 +7,11 @@
 #import <Foundation/Foundation.h>
 
 @interface UIView (PLXFrameLayout)
-@property(nonatomic, assign) CGFloat pl_minY;
-@property(nonatomic, assign) CGFloat pl_maxY;
-@property(nonatomic, assign) CGSize pl_size;
-@property(nonatomic, assign) CGFloat pl_width;
-@property(nonatomic, assign) CGFloat pl_height;
+@property(nonatomic, assign, setter=pl_setMinY:) CGFloat pl_minY;
+@property(nonatomic, assign, setter=pl_setMaxY:) CGFloat pl_maxY;
+@property(nonatomic, assign, setter=pl_setWidth:) CGFloat pl_width;
+@property(nonatomic, assign, setter=pl_setHeight:) CGFloat pl_height;
+@property(nonatomic, assign, setter=pl_setSize:) CGSize pl_size;
 
 - (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings;
 
