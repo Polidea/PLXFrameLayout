@@ -6,13 +6,13 @@
 #import <XCTest/XCTest.h>
 #import "UIView+PLXFrameLayout.h"
 
-@interface UIView_FrameLayoutTest_pinnig : XCTestCase
+@interface UIView_FrameLayoutTest_pinning : XCTestCase
 @property(nonatomic, strong, readonly) UIView *superView;
 @property(nonatomic, strong, readonly) UIView *subView;
 @property(nonatomic, assign, readonly) CGRect originalSubviewRect;
 @end
 
-@implementation UIView_FrameLayoutTest_pinnig
+@implementation UIView_FrameLayoutTest_pinning
 
 - (void)setUp {
     [super setUp];
@@ -127,26 +127,29 @@
 
 - (void)testAlignToEdgeOfViewWithMargin_top {
     CGFloat topInset = 17;
-    [self.subView pl_alignTo:NSLayoutAttributeTop ofView:self.superView withMargin:topInset];
+    [self.subView pl_alignToAttribute:NSLayoutAttributeTop ofView:self.superView withOffset:topInset];
     XCTAssertEqualWithAccuracy(CGRectGetMinY(self.subView.frame), CGRectGetMinY(self.superView.bounds) + topInset, FLT_EPSILON);
 }
 
 - (void)testAlignToEdgeOfViewWithMargin_bottom {
     CGFloat bottomInset = 11;
-    [self.subView pl_alignTo:NSLayoutAttributeBottom ofView:self.superView withMargin:bottomInset];
+    [self.subView pl_alignToAttribute:NSLayoutAttributeBottom ofView:self.superView withOffset:-bottomInset];
     XCTAssertEqualWithAccuracy(CGRectGetMaxY(self.subView.frame), CGRectGetMaxY(self.superView.bounds) - bottomInset, FLT_EPSILON);
 }
 
 - (void)testAlignToEdgeOfViewWithMargin_left {
     CGFloat leftInset = 13;
-    [self.subView pl_alignTo:NSLayoutAttributeLeft ofView:self.superView withMargin:leftInset];
+    [self.subView pl_alignToAttribute:NSLayoutAttributeLeft ofView:self.superView withOffset:leftInset];
     XCTAssertEqualWithAccuracy(CGRectGetMinX(self.subView.frame), CGRectGetMinX(self.superView.bounds) + leftInset, FLT_EPSILON);
 }
 
 - (void)testAlignToEdgeOfViewWithMargin_right {
     CGFloat rightInset = 3;
-    [self.subView pl_alignTo:NSLayoutAttributeRight ofView:self.superView withMargin:rightInset];
-    XCTAssertEqualWithAccuracy(CGRectGetMaxX(self.subView.frame), CGRectGetMaxX(self.superView.bounds) - rightInset, FLT_EPSILON);
+    CGRect subView2Rect = self.originalSubviewRect;
+    subView2Rect.origin.x = 200;
+    UIView *subView2 = [[UIView alloc] initWithFrame:subView2Rect];
+    [self.subView pl_alignToAttribute:NSLayoutAttributeRight ofView:subView2 withOffset:-rightInset];
+    XCTAssertEqualWithAccuracy(CGRectGetMaxX(self.subView.frame), CGRectGetMaxX(subView2.frame) - rightInset, FLT_EPSILON);
 }
 
 

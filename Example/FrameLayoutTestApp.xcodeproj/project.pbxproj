@@ -465,6 +465,7 @@
 				GCC_WARN_PEDANTIC = YES;
 				INFOPLIST_FILE = FrameLayoutTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FrameLayoutTestApp.app/FrameLayoutTestApp";
 				WARNING_CFLAGS = (
@@ -486,6 +487,7 @@
 				GCC_WARN_PEDANTIC = YES;
 				INFOPLIST_FILE = FrameLayoutTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FrameLayoutTestApp.app/FrameLayoutTestApp";
 				WARNING_CFLAGS = (

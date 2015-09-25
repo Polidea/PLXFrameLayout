@@ -80,36 +80,36 @@
 
     CGSize greensSize = CGSizeMake(70, 70);
     _greenSquareTopLeft.pl_size = greensSize;
-    [_greenSquareTopLeft pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
-    [_greenSquareTopLeft pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    [_greenSquareTopLeft pl_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
+    [_greenSquareTopLeft pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
 
     _greenSquareTopRight.pl_size = greensSize;
-    [_greenSquareTopRight pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
-    [_greenSquareTopRight pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    [_greenSquareTopRight pl_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
+    [_greenSquareTopRight pl_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
 
     _greenSquareBottomLeft.pl_size = greensSize;
-    [_greenSquareBottomLeft pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
-    [_greenSquareBottomLeft pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    [_greenSquareBottomLeft pl_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
+    [_greenSquareBottomLeft pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
 
     _greenSquareBottomRight.pl_size = greensSize;
-    [_greenSquareBottomRight pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
-    [_greenSquareBottomRight pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    [_greenSquareBottomRight pl_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
+    [_greenSquareBottomRight pl_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
 
     CGSize yellowsSize = CGSizeMake(70, 70);
     _yellowSquareTopMiddle.pl_size = yellowsSize;
-    [_yellowSquareTopMiddle pl_alignToSuperView:NSLayoutAttributeTop withMargin:edgeMargin];
+    [_yellowSquareTopMiddle pl_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
     [_yellowSquareTopMiddle pl_alignToCenterXOfView:self];
 
     _yellowSquareBottomMiddle.pl_size = yellowsSize;
-    [_yellowSquareBottomMiddle pl_alignToSuperView:NSLayoutAttributeBottom withMargin:edgeMargin];
+    [_yellowSquareBottomMiddle pl_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
     [_yellowSquareBottomMiddle pl_alignToCenterXOfView:self];
 
     _yellowSquareRightMiddle.pl_size = yellowsSize;
-    [_yellowSquareRightMiddle pl_alignToSuperView:NSLayoutAttributeRight withMargin:edgeMargin];
+    [_yellowSquareRightMiddle pl_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
     [_yellowSquareRightMiddle pl_alignToCenterYOfView:self];
 
     _yellowSquareLeftMiddle.pl_size = yellowsSize;
-    [_yellowSquareLeftMiddle pl_alignToSuperView:NSLayoutAttributeLeft withMargin:edgeMargin];
+    [_yellowSquareLeftMiddle pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
     [_yellowSquareLeftMiddle pl_alignToCenterYOfView:self];
 }
 

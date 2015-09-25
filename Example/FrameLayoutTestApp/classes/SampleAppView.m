@@ -88,11 +88,11 @@
     //containers content
     _topLeftView.pl_size = CGSizeMake(50, 50);
     [_topLeftView pl_centerYInSuperView];
-    [_topLeftView pl_alignToSuperView:NSLayoutAttributeLeft withMargin:10];
+    [_topLeftView pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:10];
 
     _topRightView.pl_size = CGSizeMake(50, 50);
     [_topRightView pl_centerYInSuperView];
-    [_topRightView pl_alignToSuperView:NSLayoutAttributeRight withMargin:10];
+    [_topRightView pl_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-10];
 
     [_centerView pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     [_centerView pl_centerXInSuperView];
@@ -107,7 +107,7 @@
     [_centerBottomButton pl_centerYInSuperView];
 
     [_leftBottomButton pl_centerYInSuperView];
-    [_leftBottomButton pl_placeOnLeftOf:_centerBottomButton withMargin:-20];
+    [_leftBottomButton pl_placeOnLeftOf:_centerBottomButton withMargin:20];
 
     [_rightBottomButton pl_centerYInSuperView];
     [_rightBottomButton pl_placeOnRightOf:_centerBottomButton withMargin:20];

@@ -18,6 +18,7 @@
 @property(nonatomic, assign, setter=pl_setWidth:) CGFloat pl_width;
 @property(nonatomic, assign, setter=pl_setHeight:) CGFloat pl_height;
 @property(nonatomic, assign, setter=pl_setSize:) CGSize pl_size;
+@property(nonatomic, assign, setter=pl_setFrame:) CGRect pl_frame;
 
 - (void)pl_sizeToFitSubviews;
 
@@ -55,8 +56,13 @@
 - (void)pl_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin;
 - (void)pl_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin;
 
-- (void)pl_alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin;
-- (void)pl_alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin;
+- (void)pl_alignToSuperViewAttribute:(NSLayoutAttribute)edgeAttribute withOffset:(CGFloat)offset;
+- (void)pl_alignToAttribute:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withOffset:(CGFloat)offset;
+
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view;
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view offset:(CGFloat)offset;
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier;
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier offset:(CGFloat)offset;
 
 - (void)pl_expandToSuperViewEdges;
 - (void)pl_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets;
@@ -78,5 +84,8 @@
 
 - (void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces __attribute__((deprecated("Use -pl_distributeSubviewsVerticallyInSuperView:withTopAndBottomMargin: instead.")));
 - (void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTrailingSpaces __attribute__((deprecated("Use -pl_distributeSubviewsHorizontallyInSuperView:withTopAndBottomMargin: instead.")));
+
+- (void)pl_alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin __attribute__((deprecated("Use -pl_alignToSuperViewAttribute:withOffset: instead.")));
+- (void)pl_alignTo:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withMargin:(CGFloat)margin __attribute__((deprecated("Use -pl_alignToAttribute:ofView:withOffset: instead.")));
 
 @end
