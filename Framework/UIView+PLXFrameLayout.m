@@ -131,7 +131,7 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
+        __unused BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
         NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
@@ -187,7 +187,7 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
     NSNumber *previousSpacing = nil;
     UIView *previousView = nil;
     for (id viewOrSpacing in viewsAndSpacings) {
-        BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
+        __unused BOOL isView = [viewOrSpacing isKindOfClass:[UIView class]];
         BOOL isSpacing = [viewOrSpacing isKindOfClass:[NSNumber class]];
         NSAssert(!isView || !isSpacing, @"Item must be a view or a number.");
         if (isSpacing) {
