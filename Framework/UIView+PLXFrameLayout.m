@@ -140,6 +140,9 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
             continue;
         }
         UIView *view = viewOrSpacing;
+        if (view.isHidden) {
+            continue;
+        }
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
             [view pl_alignToSuperView:NSLayoutAttributeTop withMargin:margin];
@@ -194,6 +197,9 @@ static NSString *const PLXFrameLayoutNotSupportedAttributeExceptionReason = @"Th
             continue;
         }
         UIView *view = viewOrSpacing;
+        if (view.isHidden) {
+            continue;
+        }
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
             [view pl_alignToSuperView:NSLayoutAttributeLeft withMargin:margin];
