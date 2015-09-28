@@ -37,8 +37,8 @@ static const NSInteger NumberOfHorizontalItems = 4;
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    [self pl_distributeSubviewsHorizontallyInSuperView:_horizontalItems withLeftAndRightMargin:YES];
-    [self pl_distributeSubviewsVerticallyInSuperView:_verticalItems withTopAndBottomMargin:YES];
+    [self plx_distributeSubviewsHorizontallyInSuperView:_horizontalItems withLeftAndRightMargin:YES];
+    [self plx_distributeSubviewsVerticallyInSuperView:_verticalItems withTopAndBottomMargin:YES];
 }
 
 - (NSArray *)verticalItemsWithSize:(CGSize)size {

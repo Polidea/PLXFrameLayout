@@ -40,32 +40,32 @@
     UIView *firstView = self.superView.subviews[0];
     UIView *secondView = self.superView.subviews[1];
 
-    [firstView pl_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofView:secondView];
+    [firstView plx_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofView:secondView];
     XCTAssertEqualWithAccuracy(firstView.frame.origin.x, secondView.frame.origin.x, FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofView:secondView];
+    [firstView plx_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofView:secondView];
     XCTAssertEqualWithAccuracy(firstView.frame.origin.x, CGRectGetMaxX(secondView.frame), FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeCenterX toAttribute:NSLayoutAttributeLeft ofView:secondView];
+    [firstView plx_alignAttribute:NSLayoutAttributeCenterX toAttribute:NSLayoutAttributeLeft ofView:secondView];
     XCTAssertEqualWithAccuracy(CGRectGetMidX(firstView.frame), secondView.frame.origin.x, FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofView:secondView];
+    [firstView plx_alignAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofView:secondView];
     XCTAssertEqualWithAccuracy(CGRectGetMaxX(firstView.frame), secondView.frame.origin.x, FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofView:secondView offset:10];
+    [firstView plx_alignAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofView:secondView offset:10];
     XCTAssertEqualWithAccuracy(firstView.frame.origin.y, CGRectGetMaxY(secondView.frame) + 10, FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeCenterY ofView:secondView];
+    [firstView plx_alignAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeCenterY ofView:secondView];
     XCTAssertEqualWithAccuracy(CGRectGetMaxY(firstView.frame), CGRectGetMidY(secondView.frame), FLT_EPSILON, @"Wrong alignment");
 
-    [firstView pl_alignAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight ofView:secondView multiplier:2];
+    [firstView plx_alignAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight ofView:secondView multiplier:2];
     XCTAssertEqualWithAccuracy(CGRectGetWidth(firstView.frame), CGRectGetHeight(secondView.frame) * 2, FLT_EPSILON, @"Wrong alignment");
 }
 
 #pragma MARK - AlignViewsVertically
 
 - (void)testAlignViewsVertically_verticalDistance {
-    CGFloat totalHeight = [self.superView pl_alignViewsVertically:self.subviewsAndSpacings];
+    CGFloat totalHeight = [self.superView plx_alignViewsVertically:self.subviewsAndSpacings];
 
     CGRect firstViewFrame = [self.subviewsAndSpacings[1] frame];
     CGRect secondViewFrame = [self.subviewsAndSpacings[3] frame];
@@ -80,8 +80,8 @@
 - (void)testAlignViewsVertically_horizontalCentering {
     CGFloat margin = 0;
 
-    CGFloat totalHeight = [self.superView pl_alignViewsVertically:self.subviewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX
-                                                       withMargin:margin];
+    CGFloat totalHeight = [self.superView plx_alignViewsVertically:self.subviewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX
+                                                        withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];
@@ -97,9 +97,9 @@
 - (void)testAlignViewsVertically_horizontalAlignLeft {
     CGFloat margin = 19;
 
-    CGFloat totalHeight = [self.superView pl_alignViewsVertically:self.subviewsAndSpacings
-                                           additionallyAligningTo:NSLayoutAttributeLeft
-                                                       withMargin:margin];
+    CGFloat totalHeight = [self.superView plx_alignViewsVertically:self.subviewsAndSpacings
+                                            additionallyAligningTo:NSLayoutAttributeLeft
+                                                        withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];
@@ -115,9 +115,9 @@
 - (void)testAlignViewsVertically_horizontalAlignRight {
     CGFloat margin = 19;
 
-    CGFloat totalHeight = [self.superView pl_alignViewsVertically:self.subviewsAndSpacings
-                                           additionallyAligningTo:NSLayoutAttributeRight
-                                                       withMargin:margin];
+    CGFloat totalHeight = [self.superView plx_alignViewsVertically:self.subviewsAndSpacings
+                                            additionallyAligningTo:NSLayoutAttributeRight
+                                                        withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];
@@ -133,7 +133,7 @@
 #pragma MARK - AlignViewsHorizontally
 
 - (void)testAlignViewsHorizontally_horizontalDistance {
-    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.subviewsAndSpacings];
+    CGFloat totalWidth = [self.superView plx_alignViewsHorizontally:self.subviewsAndSpacings];
 
     CGRect firstViewFrame = [self.subviewsAndSpacings[1] frame];
     CGRect secondViewFrame = [self.subviewsAndSpacings[3] frame];
@@ -148,9 +148,9 @@
 - (void)testAlignViewsHorizontally_verticalAlignCenter {
     CGFloat margin = 19;
 
-    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.subviewsAndSpacings
-                                            additionallyAligningTo:NSLayoutAttributeCenterY
-                                                        withMargin:margin];
+    CGFloat totalWidth = [self.superView plx_alignViewsHorizontally:self.subviewsAndSpacings
+                                             additionallyAligningTo:NSLayoutAttributeCenterY
+                                                         withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];
@@ -166,9 +166,9 @@
 - (void)testAlignViewsHorizontally_verticalAlignTop {
     CGFloat margin = 19;
 
-    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.subviewsAndSpacings
-                                            additionallyAligningTo:NSLayoutAttributeTop
-                                                        withMargin:margin];
+    CGFloat totalWidth = [self.superView plx_alignViewsHorizontally:self.subviewsAndSpacings
+                                             additionallyAligningTo:NSLayoutAttributeTop
+                                                         withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];
@@ -184,9 +184,9 @@
 - (void)testAlignViewsHorizontally_verticalAlignBottom {
     CGFloat margin = 19;
 
-    CGFloat totalWidth = [self.superView pl_alignViewsHorizontally:self.subviewsAndSpacings
-                                            additionallyAligningTo:NSLayoutAttributeBottom
-                                                        withMargin:margin];
+    CGFloat totalWidth = [self.superView plx_alignViewsHorizontally:self.subviewsAndSpacings
+                                             additionallyAligningTo:NSLayoutAttributeBottom
+                                                         withMargin:margin];
 
     UIView *firstView = self.subviewsAndSpacings[1];
     UIView *secondView = self.subviewsAndSpacings[3];

@@ -42,8 +42,8 @@ static const CGFloat ItemsHorizontalSpacing = 10.0;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self pl_alignViewsVertically:_verticalItems additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
-    [self pl_alignViewsHorizontally:_horizontalItems additionallyAligningTo:NSLayoutAttributeBottom withMargin:10];
+    [self plx_alignViewsVertically:_verticalItems additionallyAligningTo:NSLayoutAttributeCenterX withMargin:0];
+    [self plx_alignViewsHorizontally:_horizontalItems additionallyAligningTo:NSLayoutAttributeBottom withMargin:10];
 }
 
 - (NSArray *)verticalItemsWithSize:(CGSize)size {

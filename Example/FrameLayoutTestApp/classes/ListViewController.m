@@ -26,6 +26,7 @@ static NSString *const CellReuseIdentifier = @"CellReuseIdentifier";
 
     self.title = @"Frame Layout";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellReuseIdentifier];
+    self.tableView.tableFooterView = [UIView new];
 
     _menuItems = @[
             @{kMenuItemTitle : @"Simple Edge Alignment", kMenuItemClassName : NSStringFromClass([EdgeAlignmentView class])},

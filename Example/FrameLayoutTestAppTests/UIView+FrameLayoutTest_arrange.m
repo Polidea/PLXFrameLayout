@@ -38,7 +38,7 @@
 }
 
 - (void)testArrangeSubViewsVerticallyInSuperView_withTopBottomSpaces {
-    [self.superView pl_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:YES];
+    [self.superView plx_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:YES];
 
     CGFloat firstViewTopSpace = CGRectGetMinY([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewVerticalDistance = CGRectGetMinY([self viewAtIndex:1].frame) - CGRectGetMaxY([self viewAtIndex:0].frame);
@@ -51,7 +51,7 @@
 }
 
 - (void)testArrangeSubViewsVerticallyInSuperView {
-    [self.superView pl_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:NO];
+    [self.superView plx_distributeSubviewsVerticallyInSuperView:self.subViewsArray withTopAndBottomMargin:NO];
 
     CGFloat firstViewTopSpace = CGRectGetMinY([self viewAtIndex:0].frame) - CGRectGetMinY(self.superView.bounds);
     CGFloat firstAndSecondViewVerticalDistance = CGRectGetMinY([self viewAtIndex:1].frame) - CGRectGetMaxY([self viewAtIndex:0].frame);
@@ -64,7 +64,7 @@
 }
 
 - (void)testArrangeSubViewsHorizontallyInSuperView_withLeadingAndTralinSpaces {
-    [self.superView pl_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:YES];
+    [self.superView plx_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:YES];
 
     CGFloat firstViewLeadingSpace = CGRectGetMinX([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:1].frame) - CGRectGetMaxX([self viewAtIndex:0].frame);
@@ -77,7 +77,7 @@
 }
 
 - (void)testArrangeSubViewsHorizontallyInSuperView {
-    [self.superView pl_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:NO];
+    [self.superView plx_distributeSubviewsHorizontallyInSuperView:self.subViewsArray withLeftAndRightMargin:NO];
 
     CGFloat firstViewLeadingSpace = CGRectGetMinX([self viewAtIndex:0].frame);
     CGFloat firstAndSecondViewHorizontalDistance = CGRectGetMinX([self viewAtIndex:1].frame) - CGRectGetMaxX([self viewAtIndex:0].frame);
@@ -93,7 +93,7 @@
     CGFloat spacing = 10;
     NSMutableArray *viewsOrSpacings = [self.subViewsArray mutableCopy];
     [viewsOrSpacings addObject:@(spacing)];
-    [self.superView pl_fillSuperViewVertically:viewsOrSpacings expandableViews:@[[self viewAtIndex:1], [self viewAtIndex:2]]];
+    [self.superView plx_fillSuperViewVertically:viewsOrSpacings expandableViews:@[[self viewAtIndex:1], [self viewAtIndex:2]]];
 
     CGFloat allSubviewsHeights = spacing;
     for (UIView *subview in self.subViewsArray) {
@@ -111,7 +111,7 @@
     CGFloat spacing = 10.f;
     NSMutableArray *viewsAndSpacings = [self.subViewsArray mutableCopy];
     [viewsAndSpacings insertObject:@(spacing) atIndex:1];
-    [self.superView pl_fillSuperViewHorizontally:viewsAndSpacings expandableViews:@[[self viewAtIndex:1], [self viewAtIndex:2]]];
+    [self.superView plx_fillSuperViewHorizontally:viewsAndSpacings expandableViews:@[[self viewAtIndex:1], [self viewAtIndex:2]]];
 
     CGFloat allSubviewsWidths = spacing;
     for (UIView *subview in self.subViewsArray) {

@@ -75,42 +75,42 @@
     [super layoutSubviews];
 
     //containers
-    [_topContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_middleContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
-    [_bottomContainer pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_topContainer plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_middleContainer plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
+    [_bottomContainer plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
 
     _topContainer.pl_height = 75;
     _bottomContainer.pl_height = 75;
 
-    [self pl_fillSuperViewVertically:@[_topContainer, _middleContainer, _bottomContainer]
-                     expandableViews:@[_middleContainer]];
+    [self plx_fillSuperViewVertically:@[_topContainer, _middleContainer, _bottomContainer]
+                      expandableViews:@[_middleContainer]];
 
     //containers content
     _topLeftView.pl_size = CGSizeMake(50, 50);
-    [_topLeftView pl_centerYInSuperView];
-    [_topLeftView pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:10];
+    [_topLeftView plx_centerYInSuperView];
+    [_topLeftView plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:10];
 
     _topRightView.pl_size = CGSizeMake(50, 50);
-    [_topRightView pl_centerYInSuperView];
-    [_topRightView pl_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-10];
+    [_topRightView plx_centerYInSuperView];
+    [_topRightView plx_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-10];
 
-    [_centerView pl_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
-    [_centerView pl_centerXInSuperView];
-    [_centerView pl_expandToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
+    [_centerView plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [_centerView plx_centerXInSuperView];
+    [_centerView plx_expandToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
 
 
     _leftBottomButton.pl_size = CGSizeMake(50, 50);
     _centerBottomButton.pl_size = CGSizeMake(50, 50);
     _rightBottomButton.pl_size = CGSizeMake(50, 50);
 
-    [_centerBottomButton pl_centerXInSuperView];
-    [_centerBottomButton pl_centerYInSuperView];
+    [_centerBottomButton plx_centerXInSuperView];
+    [_centerBottomButton plx_centerYInSuperView];
 
-    [_leftBottomButton pl_centerYInSuperView];
-    [_leftBottomButton pl_placeOnLeftOf:_centerBottomButton withMargin:20];
+    [_leftBottomButton plx_centerYInSuperView];
+    [_leftBottomButton plx_placeOnLeftOf:_centerBottomButton withMargin:20];
 
-    [_rightBottomButton pl_centerYInSuperView];
-    [_rightBottomButton pl_placeOnRightOf:_centerBottomButton withMargin:20];
+    [_rightBottomButton plx_centerYInSuperView];
+    [_rightBottomButton plx_placeOnRightOf:_centerBottomButton withMargin:20];
 }
 
 @end

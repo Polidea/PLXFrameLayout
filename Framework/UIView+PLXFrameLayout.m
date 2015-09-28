@@ -181,19 +181,19 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - Vertical
 
-- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings {
-    return [self pl_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
+- (CGFloat)plx_alignViewsVertically:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
 }
 
-- (CGFloat)pl_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
-    return [self pl_alignViewsVertically:viewsAndSpacings centeringWithMargin:0];
+- (CGFloat)plx_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsVertically:viewsAndSpacings centeringWithMargin:0];
 }
 
-- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
-    return [self pl_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX withMargin:spaceFromCenter];
+- (CGFloat)plx_alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
+    return [self plx_alignViewsVertically:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterX withMargin:spaceFromCenter];
 }
 
-- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
+- (CGFloat)plx_alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
     marginFromAttribute = (attribute == NSLayoutAttributeRight ? -1 : 1) * marginFromAttribute;
     CGFloat height = 0;
     NSNumber *previousSpacing = nil;
@@ -211,9 +211,9 @@ static NSArray *setterAttributes = nil;
         }
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
-            [view pl_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:margin];
+            [view plx_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:margin];
         } else if (previousView) {
-            [view pl_placeUnder:previousView withMargin:margin];
+            [view plx_placeUnder:previousView withMargin:margin];
         }
         height += margin + view.pl_height;
         previousView = view;
@@ -222,7 +222,7 @@ static NSArray *setterAttributes = nil;
             case NSLayoutAttributeLeft:
             case NSLayoutAttributeRight:
             case NSLayoutAttributeCenterX:
-                [view pl_alignToAttribute:attribute ofView:self withOffset:marginFromAttribute];
+                [view plx_alignToAttribute:attribute ofView:self withOffset:marginFromAttribute];
                 break;
             case NSLayoutAttributeNotAnAttribute:
                 break;
@@ -238,19 +238,19 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - Horizontal
 
-- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings {
-    return [self pl_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
+- (CGFloat)plx_alignViewsHorizontally:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeNotAnAttribute withMargin:0];
 }
 
-- (CGFloat)pl_alignViewsHorizontallyCentering:(NSArray *)viewsAndSpacings {
-    return [self pl_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
+- (CGFloat)plx_alignViewsHorizontallyCentering:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
 }
 
-- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
-    return [self pl_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterY withMargin:spaceFromCenter];
+- (CGFloat)plx_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:NSLayoutAttributeCenterY withMargin:spaceFromCenter];
 }
 
-- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
+- (CGFloat)plx_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
     marginFromAttribute = (attribute == NSLayoutAttributeBottom ? -1 : 1) * marginFromAttribute;
     CGFloat width = 0;
     NSNumber *previousSpacing = nil;
@@ -268,9 +268,9 @@ static NSArray *setterAttributes = nil;
         }
         CGFloat margin = previousSpacing ? previousSpacing.floatValue : 0;
         if (!previousView && previousSpacing) {
-            [view pl_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:margin];
+            [view plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:margin];
         } else if (previousView) {
-            [view pl_placeOnRightOf:previousView withMargin:margin];
+            [view plx_placeOnRightOf:previousView withMargin:margin];
         }
         width += margin + view.pl_width;
         previousView = view;
@@ -279,7 +279,7 @@ static NSArray *setterAttributes = nil;
             case NSLayoutAttributeTop:
             case NSLayoutAttributeBottom:
             case NSLayoutAttributeCenterY:
-                [view pl_alignToAttribute:attribute ofView:self withOffset:marginFromAttribute];
+                [view plx_alignToAttribute:attribute ofView:self withOffset:marginFromAttribute];
                 break;
             case NSLayoutAttributeNotAnAttribute:
                 break;
@@ -295,7 +295,7 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - Fill superviews
 
-- (void)pl_fillSuperViewVertically:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
+- (void)plx_fillSuperViewVertically:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
     __block UIView *firstView = nil;
     __block NSNumber *firstSpacing = nil;
     __block CGFloat allNonExpandableViewsHeight = 0;
@@ -310,7 +310,7 @@ static NSArray *setterAttributes = nil;
             }
         } else {
             BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
-            allNonExpandableViewsHeight += isExpandableView ? 0 : [(UIView *) viewOrSpacing pl_height];
+            allNonExpandableViewsHeight += isExpandableView ? 0 : [viewOrSpacing pl_height];
             if (!firstView) {
                 firstView = viewOrSpacing;
             }
@@ -324,11 +324,11 @@ static NSArray *setterAttributes = nil;
         expandableView.pl_height = heightForSingleExpandableView;
     }
 
-    [firstView pl_alignToAttribute:NSLayoutAttributeTop ofView:self withOffset:firstSpacing.floatValue];
-    [self pl_alignViewsVertically:viewsAndSpacings];
+    [firstView plx_alignToAttribute:NSLayoutAttributeTop ofView:self withOffset:firstSpacing.floatValue];
+    [self plx_alignViewsVertically:viewsAndSpacings];
 }
 
-- (void)pl_fillSuperViewHorizontally:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
+- (void)plx_fillSuperViewHorizontally:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
     __block UIView *firstView = nil;
     __block NSNumber *firstSpacing = nil;
     __block CGFloat allNonExpandableViewsWidth = 0;
@@ -343,7 +343,7 @@ static NSArray *setterAttributes = nil;
             }
         } else {
             BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
-            allNonExpandableViewsWidth += isExpandableView ? 0 : [(UIView *) viewOrSpacing pl_width];
+            allNonExpandableViewsWidth += isExpandableView ? 0 : [viewOrSpacing pl_width];
             if (!firstView) {
                 firstView = viewOrSpacing;
             }
@@ -357,13 +357,13 @@ static NSArray *setterAttributes = nil;
         expandableView.pl_width = widthForSingleExpandableView;
     }
 
-    [firstView pl_alignToAttribute:NSLayoutAttributeLeft ofView:self withOffset:firstSpacing.floatValue];
-    [self pl_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
+    [firstView plx_alignToAttribute:NSLayoutAttributeLeft ofView:self withOffset:firstSpacing.floatValue];
+    [self plx_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:0];
 }
 
 #pragma mark - Arrange superviews
 
-- (void)pl_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins {
+- (void)plx_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins {
     NSUInteger lastSubviewsIndex = subviews.count - 1;
     CGFloat subviewsTotalHeight = 0;
     for (UIView *view in subviews) {
@@ -392,12 +392,12 @@ static NSArray *setterAttributes = nil;
     }
 
     UIView *firstSubview = subviews.firstObject;
-    [firstSubview pl_alignToAttribute:NSLayoutAttributeTop ofView:self withOffset:0];
+    [firstSubview plx_alignToAttribute:NSLayoutAttributeTop ofView:self withOffset:0];
 
-    [self pl_alignViewsVertically:viewsAndSpacers];
+    [self plx_alignViewsVertically:viewsAndSpacers];
 }
 
-- (void)pl_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin {
+- (void)plx_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin {
     NSUInteger lastSubviewIndex = subviews.count - 1;
     CGFloat subviewsTotalWidth = 0;
     for (UIView *view in subviews) {
@@ -426,33 +426,33 @@ static NSArray *setterAttributes = nil;
     }
 
     UIView *firstSubview = subviews.firstObject;
-    [firstSubview pl_alignToAttribute:NSLayoutAttributeLeft ofView:self withOffset:0];
+    [firstSubview plx_alignToAttribute:NSLayoutAttributeLeft ofView:self withOffset:0];
 
-    [self pl_alignViewsHorizontally:viewsAndSpacers];
+    [self plx_alignViewsHorizontally:viewsAndSpacers];
 }
 
 #pragma mark - Edges
 
-- (void)pl_expandToSuperViewEdges {
+- (void)plx_expandToSuperViewEdges {
     self.pl_frame = self.superview.bounds;
 }
 
-- (void)pl_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_expandToSuperViewHorizontalEdgesWithInsets:insets];
-    [self pl_expandToSuperViewVerticalEdgesWithInsets:insets];
+- (void)plx_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewHorizontalEdgesWithInsets:insets];
+    [self plx_expandToSuperViewVerticalEdgesWithInsets:insets];
 }
 
-- (void)pl_expandToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_expandToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
-    [self pl_expandToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
+- (void)plx_expandToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewEdge:NSLayoutAttributeTop withInset:insets.top];
+    [self plx_expandToSuperViewEdge:NSLayoutAttributeBottom withInset:insets.bottom];
 }
 
-- (void)pl_expandToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
-    [self pl_expandToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
-    [self pl_expandToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
+- (void)plx_expandToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewEdge:NSLayoutAttributeLeft withInset:insets.left];
+    [self plx_expandToSuperViewEdge:NSLayoutAttributeRight withInset:insets.right];
 }
 
-- (void)pl_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
+- (void)plx_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
     CGRect frame = self.pl_frame;
     switch (edge) {
         case NSLayoutAttributeLeft: {
@@ -493,109 +493,109 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - Relative
 
-- (void)pl_alignToCenterOfView:(UIView *)view {
-    [self pl_alignToCenterXOfView:view];
-    [self pl_alignToCenterYOfView:view];
+- (void)plx_alignToCenterOfView:(UIView *)view {
+    [self plx_alignToCenterXOfView:view];
+    [self plx_alignToCenterYOfView:view];
 }
 
-- (void)pl_alignToCenterXOfView:(UIView *)view {
-    [self pl_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
+- (void)plx_alignToCenterXOfView:(UIView *)view {
+    [self plx_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
 }
 
-- (void)pl_alignToCenterYOfView:(UIView *)view {
-    [self pl_alignToAttribute:NSLayoutAttributeCenterY ofView:view withOffset:0];
+- (void)plx_alignToCenterYOfView:(UIView *)view {
+    [self plx_alignToAttribute:NSLayoutAttributeCenterY ofView:view withOffset:0];
 }
 
 #pragma mark - Absolute
 
-- (void)pl_centerInSuperView {
-    [self pl_centerXInSuperView];
-    [self pl_centerYInSuperView];
+- (void)plx_centerInSuperView {
+    [self plx_centerXInSuperView];
+    [self plx_centerYInSuperView];
 }
 
-- (void)pl_centerXInSuperView {
-    [self pl_alignToSuperViewAttribute:NSLayoutAttributeCenterX withOffset:0];
+- (void)plx_centerXInSuperView {
+    [self plx_alignToSuperViewAttribute:NSLayoutAttributeCenterX withOffset:0];
 }
 
-- (void)pl_centerYInSuperView {
-    [self pl_alignToSuperViewAttribute:NSLayoutAttributeCenterY withOffset:0];
+- (void)plx_centerYInSuperView {
+    [self plx_alignToSuperViewAttribute:NSLayoutAttributeCenterY withOffset:0];
 }
 
 #pragma mark - Above
 
-- (void)pl_placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeAbove:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
+- (void)plx_placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAbove:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
 }
 
-- (void)pl_placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeAbove:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeLeft ofView:view withOffset:0];
+- (void)plx_placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAbove:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeLeft ofView:view withOffset:0];
 }
 
-- (void)pl_placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeAbove:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeRight ofView:view withOffset:0];
+- (void)plx_placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAbove:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeRight ofView:view withOffset:0];
 }
 
 #pragma mark - Under
 
-- (void)pl_placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeUnder:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
+- (void)plx_placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnder:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeCenterX ofView:view withOffset:0];
 }
 
-- (void)pl_placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeUnder:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeLeft ofView:view withOffset:0];
+- (void)plx_placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnder:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeLeft ofView:view withOffset:0];
 }
 
-- (void)pl_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_placeUnder:view withMargin:margin];
-    [self pl_alignToAttribute:NSLayoutAttributeRight ofView:view withOffset:0];
+- (void)plx_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnder:view withMargin:margin];
+    [self plx_alignToAttribute:NSLayoutAttributeRight ofView:view withOffset:0];
 }
 
 #pragma mark - Core
 
-- (void)pl_placeUnder:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_alignAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofView:view multiplier:1 offset:margin];
+- (void)plx_placeUnder:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_alignAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofView:view multiplier:1 offset:margin];
 }
 
-- (void)pl_placeAbove:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_alignAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofView:view multiplier:1 offset:-margin];
+- (void)plx_placeAbove:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_alignAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofView:view multiplier:1 offset:-margin];
 }
 
-- (void)pl_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_alignAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofView:view multiplier:1 offset:-margin];
+- (void)plx_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_alignAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofView:view multiplier:1 offset:-margin];
 }
 
-- (void)pl_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin {
-    [self pl_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofView:view multiplier:1 offset:margin];
+- (void)plx_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_alignAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofView:view multiplier:1 offset:margin];
 }
 
-- (void)pl_alignToSuperViewAttribute:(NSLayoutAttribute)edgeAttribute withOffset:(CGFloat)offset {
-    [self pl_alignToAttribute:edgeAttribute ofView:self.superview withOffset:offset];
+- (void)plx_alignToSuperViewAttribute:(NSLayoutAttribute)edgeAttribute withOffset:(CGFloat)offset {
+    [self plx_alignToAttribute:edgeAttribute ofView:self.superview withOffset:offset];
 }
 
-- (void)pl_alignToAttribute:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withOffset:(CGFloat)offset {
-    [self pl_alignAttribute:edgeAttribute toAttribute:edgeAttribute ofView:view multiplier:1 offset:offset];
+- (void)plx_alignToAttribute:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withOffset:(CGFloat)offset {
+    [self plx_alignAttribute:edgeAttribute toAttribute:edgeAttribute ofView:view multiplier:1 offset:offset];
 }
 
 #pragma mark - Total alignment
 
-- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view {
-    [self pl_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:1.f offset:0];
+- (void)plx_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:1.f offset:0];
 }
 
-- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view offset:(CGFloat)offset {
-    [self pl_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:1.f offset:offset];
+- (void)plx_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view offset:(CGFloat)offset {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:1.f offset:offset];
 }
 
-- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier {
-    [self pl_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:multiplier offset:0];
+- (void)plx_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:multiplier offset:0];
 }
 
-- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier offset:(CGFloat)offset {
+- (void)plx_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier offset:(CGFloat)offset {
     if (attribute == NSLayoutAttributeNotAnAttribute || outerAttribute == NSLayoutAttributeNotAnAttribute) {
         return;
     }
@@ -637,7 +637,7 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - Helpers
 
-- (void)pl_sizeToFitSubviews {
+- (void)plx_sizeToFitSubviews {
     for (UIView *subview in self.subviews) {
         [subview sizeToFit];
     }
@@ -681,22 +681,22 @@ NSString *PLX_NSStringFromLayoutAttributes(NSLayoutAttribute attribute) {
     return [NSString stringWithCString:c_str encoding:NSASCIIStringEncoding];
 }
 
-#pragma mark - Deprecated
+#pragma mark - Deprecated API
 
 - (void)pl_fillSuperViewVerticallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
-    [self pl_fillSuperViewVertically:views expandableViews:expandableViews.allObjects];
+    [self plx_fillSuperViewVertically:views expandableViews:expandableViews.allObjects];
 }
 
 - (void)pl_fillSuperViewHorizontallyWithViews:(NSArray *)views expandableViews:(NSSet *)expandableViews {
-    [self pl_fillSuperViewHorizontally:views expandableViews:expandableViews.allObjects];
+    [self plx_fillSuperViewHorizontally:views expandableViews:expandableViews.allObjects];
 }
 
 - (void)pl_arrangeSubViewsVerticallyInSuperView:(NSArray *)subviews addTopAndBottomSpaces:(BOOL)topAndBottomSpaces {
-    [self pl_distributeSubviewsVerticallyInSuperView:subviews withTopAndBottomMargin:topAndBottomSpaces];
+    [self plx_distributeSubviewsVerticallyInSuperView:subviews withTopAndBottomMargin:topAndBottomSpaces];
 }
 
 - (void)pl_arrangeSubViewsHorizontallyInSuperView:(NSArray *)subviews addLeadingAndTrailingSpaces:(BOOL)leadingAndTrailingSpaces {
-    [self pl_distributeSubviewsHorizontallyInSuperView:subviews withLeftAndRightMargin:leadingAndTrailingSpaces];
+    [self plx_distributeSubviewsHorizontallyInSuperView:subviews withLeftAndRightMargin:leadingAndTrailingSpaces];
 }
 
 - (void)pl_alignToSuperView:(NSLayoutAttribute)edgeAttribute withMargin:(CGFloat)margin {
@@ -737,6 +737,168 @@ NSString *PLX_NSStringFromLayoutAttributes(NSLayoutAttribute attribute) {
                                          userInfo:nil];
     }
     self.frame = frame;
+}
+
+#pragma mark - Deprecated prefix
+
+- (void)pl_sizeToFitSubviews {
+    [self plx_sizeToFitSubviews];
+}
+
+- (void)pl_centerInSuperView {
+    [self plx_centerInSuperView];
+}
+
+- (void)pl_centerXInSuperView {
+    [self plx_centerXInSuperView];
+}
+
+- (void)pl_centerYInSuperView {
+    [self plx_centerYInSuperView];
+}
+
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsVertically:viewsAndSpacings];
+}
+
+- (CGFloat)pl_alignViewsVerticallyCentering:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsVerticallyCentering:viewsAndSpacings];
+}
+
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
+    return [self plx_alignViewsVertically:viewsAndSpacings centeringWithMargin:spaceFromCenter];
+}
+
+- (CGFloat)pl_alignViewsVertically:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
+    return [self plx_alignViewsVertically:viewsAndSpacings additionallyAligningTo:attribute withMargin:marginFromAttribute];
+}
+
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings];
+}
+
+- (CGFloat)pl_alignViewsHorizontallyCentering:(NSArray *)viewsAndSpacings {
+    return [self plx_alignViewsHorizontallyCentering:viewsAndSpacings];
+}
+
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings centeringWithMargin:(CGFloat)spaceFromCenter {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings centeringWithMargin:spaceFromCenter];
+}
+
+- (CGFloat)pl_alignViewsHorizontally:(NSArray *)viewsAndSpacings additionallyAligningTo:(NSLayoutAttribute)attribute withMargin:(CGFloat)marginFromAttribute {
+    return [self plx_alignViewsHorizontally:viewsAndSpacings additionallyAligningTo:attribute withMargin:marginFromAttribute];
+}
+
+- (void)pl_alignToCenterOfView:(UIView *)view {
+    [self plx_alignToCenterOfView:view];
+}
+
+- (void)pl_alignToCenterXOfView:(UIView *)view {
+    [self plx_alignToCenterXOfView:view];
+}
+
+- (void)pl_alignToCenterYOfView:(UIView *)view {
+    [self plx_alignToCenterYOfView:view];
+}
+
+- (void)pl_placeAboveAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAboveAligningCenterX:view withMargin:margin];
+}
+
+- (void)pl_placeAboveAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAboveAligningToLeft:view withMargin:margin];
+}
+
+- (void)pl_placeAboveAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAboveAligningToRight:view withMargin:margin];
+}
+
+- (void)pl_placeUnderAligningCenterX:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnderAligningCenterX:view withMargin:margin];
+}
+
+- (void)pl_placeUnderAligningToLeft:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnderAligningToLeft:view withMargin:margin];
+}
+
+- (void)pl_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnderAligningToRight:view withMargin:margin];
+}
+
+- (void)pl_placeUnder:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeUnder:view withMargin:margin];
+}
+
+- (void)pl_placeAbove:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeAbove:view withMargin:margin];
+}
+
+- (void)pl_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeOnLeftOf:view withMargin:margin];
+}
+
+- (void)pl_placeOnRightOf:(UIView *)view withMargin:(CGFloat)margin {
+    [self plx_placeOnRightOf:view withMargin:margin];
+}
+
+- (void)pl_alignToSuperViewAttribute:(NSLayoutAttribute)edgeAttribute withOffset:(CGFloat)offset {
+    [self plx_alignToSuperViewAttribute:edgeAttribute withOffset:offset];
+}
+
+- (void)pl_alignToAttribute:(NSLayoutAttribute)edgeAttribute ofView:(UIView *)view withOffset:(CGFloat)offset {
+    [self plx_alignToAttribute:edgeAttribute ofView:view withOffset:offset];
+}
+
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view];
+}
+
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view offset:(CGFloat)offset {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view offset:offset];
+}
+
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:multiplier];
+}
+
+- (void)pl_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)outerAttribute ofView:(UIView *)view multiplier:(CGFloat)multiplier offset:(CGFloat)offset {
+    [self plx_alignAttribute:attribute toAttribute:outerAttribute ofView:view multiplier:multiplier offset:offset];
+}
+
+- (void)pl_expandToSuperViewEdges {
+    [self plx_expandToSuperViewEdges];
+}
+
+- (void)pl_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewEdgesWithInsets:insets];
+}
+
+- (void)pl_expandToSuperViewHorizontalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewHorizontalEdgesWithInsets:insets];
+}
+
+- (void)pl_expandToSuperViewVerticalEdgesWithInsets:(UIEdgeInsets)insets {
+    [self plx_expandToSuperViewVerticalEdgesWithInsets:insets];
+}
+
+- (void)pl_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
+    [self plx_expandToSuperViewEdge:(NSLayoutAttribute) edge withInset:inset];
+}
+
+- (void)pl_fillSuperViewVertically:(NSArray *)viewsAndSpacings expandableViews:(NSArray *)expandableViews {
+    [self plx_fillSuperViewVertically:viewsAndSpacings expandableViews:expandableViews];
+}
+
+- (void)pl_fillSuperViewHorizontally:(NSArray *)viewsAndSpacing expandableViews:(NSArray *)expandableViews {
+    [self plx_fillSuperViewHorizontally:viewsAndSpacing expandableViews:expandableViews];
+}
+
+- (void)pl_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins {
+    [self plx_distributeSubviewsVerticallyInSuperView:subviews withTopAndBottomMargin:shouldAddTopAndBottomMargins];
+}
+
+- (void)pl_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin {
+    [self plx_distributeSubviewsHorizontallyInSuperView:subviews withLeftAndRightMargin:shouldAddLeftAndRightMargin];
 }
 
 @end
