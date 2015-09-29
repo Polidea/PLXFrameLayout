@@ -44,7 +44,7 @@ static const NSInteger NumberOfHorizontalItems = 4;
 - (NSArray *)verticalItemsWithSize:(CGSize)size {
     return [UIView viewsAlignmentArrayWithCapacity:NumberOfVerticalItems withBuildBlock:^UIView * {
         UIView *subview = [ColorSubviewFactory greenView];
-        subview.pl_size = size;
+        subview.plx_size = size;
         return subview;
     }];
 }
@@ -52,7 +52,7 @@ static const NSInteger NumberOfHorizontalItems = 4;
 - (NSArray *)horizontalItemsWithSize:(CGSize)size {
     return [UIView viewsAlignmentArrayWithCapacity:NumberOfHorizontalItems withBuildBlock:^UIView * {
         UIView *subview = [ColorSubviewFactory yellowView];
-        subview.pl_size = size;
+        subview.plx_size = size;
         return subview;
     }];
 }

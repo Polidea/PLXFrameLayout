@@ -72,43 +72,43 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    _redSquare.pl_size = CGSizeMake(100, 100);
+    _redSquare.plx_size = CGSizeMake(100, 100);
     [_redSquare plx_centerXInSuperView];
     [_redSquare plx_centerYInSuperView];
 
     CGFloat edgeMargin = 10;
 
     CGSize greensSize = CGSizeMake(70, 70);
-    _greenSquareTopLeft.pl_size = greensSize;
+    _greenSquareTopLeft.plx_size = greensSize;
     [_greenSquareTopLeft plx_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
     [_greenSquareTopLeft plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
 
-    _greenSquareTopRight.pl_size = greensSize;
+    _greenSquareTopRight.plx_size = greensSize;
     [_greenSquareTopRight plx_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
     [_greenSquareTopRight plx_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
 
-    _greenSquareBottomLeft.pl_size = greensSize;
+    _greenSquareBottomLeft.plx_size = greensSize;
     [_greenSquareBottomLeft plx_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
     [_greenSquareBottomLeft plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
 
-    _greenSquareBottomRight.pl_size = greensSize;
+    _greenSquareBottomRight.plx_size = greensSize;
     [_greenSquareBottomRight plx_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
     [_greenSquareBottomRight plx_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
 
     CGSize yellowsSize = CGSizeMake(70, 70);
-    _yellowSquareTopMiddle.pl_size = yellowsSize;
+    _yellowSquareTopMiddle.plx_size = yellowsSize;
     [_yellowSquareTopMiddle plx_alignToSuperViewAttribute:NSLayoutAttributeTop withOffset:edgeMargin];
     [_yellowSquareTopMiddle plx_alignToCenterXOfView:self];
 
-    _yellowSquareBottomMiddle.pl_size = yellowsSize;
+    _yellowSquareBottomMiddle.plx_size = yellowsSize;
     [_yellowSquareBottomMiddle plx_alignToSuperViewAttribute:NSLayoutAttributeBottom withOffset:-edgeMargin];
     [_yellowSquareBottomMiddle plx_alignToCenterXOfView:self];
 
-    _yellowSquareRightMiddle.pl_size = yellowsSize;
+    _yellowSquareRightMiddle.plx_size = yellowsSize;
     [_yellowSquareRightMiddle plx_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-edgeMargin];
     [_yellowSquareRightMiddle plx_alignToCenterYOfView:self];
 
-    _yellowSquareLeftMiddle.pl_size = yellowsSize;
+    _yellowSquareLeftMiddle.plx_size = yellowsSize;
     [_yellowSquareLeftMiddle plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:edgeMargin];
     [_yellowSquareLeftMiddle plx_alignToCenterYOfView:self];
 }

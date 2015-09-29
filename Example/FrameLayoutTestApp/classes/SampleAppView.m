@@ -79,18 +79,18 @@
     [_middleContainer plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
     [_bottomContainer plx_expandToSuperViewVerticalEdgesWithInsets:UIEdgeInsetsZero];
 
-    _topContainer.pl_height = 75;
-    _bottomContainer.pl_height = 75;
+    _topContainer.plx_height = 75;
+    _bottomContainer.plx_height = 75;
 
     [self plx_fillSuperViewVertically:@[_topContainer, _middleContainer, _bottomContainer]
                       expandableViews:@[_middleContainer]];
 
     //containers content
-    _topLeftView.pl_size = CGSizeMake(50, 50);
+    _topLeftView.plx_size = CGSizeMake(50, 50);
     [_topLeftView plx_centerYInSuperView];
     [_topLeftView plx_alignToSuperViewAttribute:NSLayoutAttributeLeft withOffset:10];
 
-    _topRightView.pl_size = CGSizeMake(50, 50);
+    _topRightView.plx_size = CGSizeMake(50, 50);
     [_topRightView plx_centerYInSuperView];
     [_topRightView plx_alignToSuperViewAttribute:NSLayoutAttributeRight withOffset:-10];
 
@@ -99,9 +99,9 @@
     [_centerView plx_expandToSuperViewHorizontalEdgesWithInsets:UIEdgeInsetsZero];
 
 
-    _leftBottomButton.pl_size = CGSizeMake(50, 50);
-    _centerBottomButton.pl_size = CGSizeMake(50, 50);
-    _rightBottomButton.pl_size = CGSizeMake(50, 50);
+    _leftBottomButton.plx_size = CGSizeMake(50, 50);
+    _centerBottomButton.plx_size = CGSizeMake(50, 50);
+    _rightBottomButton.plx_size = CGSizeMake(50, 50);
 
     [_centerBottomButton plx_centerXInSuperView];
     [_centerBottomButton plx_centerYInSuperView];

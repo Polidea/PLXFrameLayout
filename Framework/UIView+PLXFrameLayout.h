@@ -11,52 +11,52 @@
 /**
  *  Represents minY of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMinY:) CGFloat pl_minY;
+@property(nonatomic, assign, setter=plx_setMinY:) CGFloat plx_minY;
 
 /**
  *  Represents midY of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMidY:) CGFloat pl_midY;
+@property(nonatomic, assign, setter=plx_setMidY:) CGFloat plx_midY;
 
 /**
  *  Represents maxY of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMaxY:) CGFloat pl_maxY;
+@property(nonatomic, assign, setter=plx_setMaxY:) CGFloat plx_maxY;
 
 /**
  *  Represents mixX of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMinX:) CGFloat pl_minX;
+@property(nonatomic, assign, setter=plx_setMinX:) CGFloat plx_minX;
 
 /**
  *  Represents midX of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMidX:) CGFloat pl_midX;
+@property(nonatomic, assign, setter=plx_setMidX:) CGFloat plx_midX;
 
 /**
  *  Represents maxX of the view's frame. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setMaxX:) CGFloat pl_maxX;
+@property(nonatomic, assign, setter=plx_setMaxX:) CGFloat plx_maxX;
 
 /**
  *  Represents width of the view. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setWidth:) CGFloat pl_width;
+@property(nonatomic, assign, setter=plx_setWidth:) CGFloat plx_width;
 
 /**
  *  Represents height of the view. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setHeight:) CGFloat pl_height;
+@property(nonatomic, assign, setter=plx_setHeight:) CGFloat plx_height;
 
 /**
  *  Represents size of the view. Assignable.
  */
-@property(nonatomic, assign, setter=pl_setSize:) CGSize pl_size;
+@property(nonatomic, assign, setter=plx_setSize:) CGSize plx_size;
 
 /**
  *  Represents frame of the view.
  */
-@property(nonatomic, assign, setter=pl_setFrame:) CGRect pl_frame;
+@property(nonatomic, assign, setter=plx_setFrame:) CGRect plx_frame;
 
 #pragma mark - Centering
 
@@ -449,6 +449,17 @@
 #pragma mark - Deprecated prefix
 
 #define PLXDeprecatedPrefix __attribute__((deprecated("Use method with 'plx_' prefix instead.")))
+
+@property(nonatomic, assign, setter=pl_setMinY:) CGFloat pl_minY PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setMidY:) CGFloat pl_midY PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setMaxY:) CGFloat pl_maxY PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setMinX:) CGFloat pl_minX PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setMidX:) CGFloat pl_midX PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setMaxX:) CGFloat pl_maxX PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setWidth:) CGFloat pl_width PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setHeight:) CGFloat pl_height PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setSize:) CGSize pl_size PLXDeprecatedPrefix;
+@property(nonatomic, assign, setter=pl_setFrame:) CGRect pl_frame PLXDeprecatedPrefix;
 
 - (void)pl_sizeToFitSubviews PLXDeprecatedPrefix;
 

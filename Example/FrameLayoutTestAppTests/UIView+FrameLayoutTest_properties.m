@@ -24,7 +24,7 @@
 }
 
 - (void)testMinY {
-    CGFloat minY = self.view.pl_minY;
+    CGFloat minY = self.view.plx_minY;
     XCTAssertEqualWithAccuracy(minY, CGRectGetMinY(self.view.frame), FLT_EPSILON);
 }
 
@@ -33,13 +33,13 @@
     CGFloat newMinY = 12;
     expectedFrame.origin.y = newMinY;
 
-    [self.view pl_setMinY:newMinY];
+    [self.view plx_setMinY:newMinY];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
 
 - (void)testMidY {
-    CGFloat midY = self.view.pl_midY;
+    CGFloat midY = self.view.plx_midY;
     XCTAssertEqualWithAccuracy(midY, CGRectGetMidY(self.view.frame), FLT_EPSILON);
 }
 
@@ -49,7 +49,7 @@
 
     expectedFrame.origin.y += (expectedFrame.size.height * 0.5f);
 
-    [self.view pl_setMidY:newMidY];
+    [self.view plx_setMidY:newMidY];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
@@ -60,18 +60,18 @@
     CGFloat shift = newMaxY - CGRectGetMaxY(self.view.frame);
     expectedFrame.origin.y += shift;
 
-    [self.view pl_setMaxY:newMaxY];
+    [self.view plx_setMaxY:newMaxY];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
 
 - (void)testMaxY {
-    CGFloat maxY = self.view.pl_maxY;
+    CGFloat maxY = self.view.plx_maxY;
     XCTAssertEqualWithAccuracy(maxY, CGRectGetMaxY(self.view.frame), FLT_EPSILON);
 }
 
 - (void)testMinX {
-    CGFloat minX = self.view.pl_minX;
+    CGFloat minX = self.view.plx_minX;
     XCTAssertEqualWithAccuracy(minX, CGRectGetMinX(self.view.frame), FLT_EPSILON);
 }
 
@@ -80,13 +80,13 @@
     CGFloat newMinX = 12;
     expectedFrame.origin.x = newMinX;
 
-    [self.view pl_setMinX:newMinX];
+    [self.view plx_setMinX:newMinX];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
 
 - (void)testMidX {
-    CGFloat midX = self.view.pl_midX;
+    CGFloat midX = self.view.plx_midX;
     XCTAssertEqualWithAccuracy(midX, CGRectGetMidX(self.view.frame), FLT_EPSILON);
 }
 
@@ -96,13 +96,13 @@
 
     expectedFrame.origin.x += (expectedFrame.size.width * 0.5f);
 
-    [self.view pl_setMidX:newMidX];
+    [self.view plx_setMidX:newMidX];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
 
 - (void)testMaxX {
-    CGFloat maxX = self.view.pl_maxX;
+    CGFloat maxX = self.view.plx_maxX;
     XCTAssertEqualWithAccuracy(maxX, CGRectGetMaxX(self.view.frame), FLT_EPSILON);
 }
 
@@ -112,41 +112,41 @@
     CGFloat shift = newMaxX - CGRectGetMaxX(self.view.frame);
     expectedFrame.origin.x += shift;
 
-    [self.view pl_setMaxX:newMaxX];
+    [self.view plx_setMaxX:newMaxX];
 
     XCTAssertTrue(CGRectEqualToRect(self.view.frame, expectedFrame));
 }
 
 - (void)testSetSize {
     CGSize newSize = CGSizeMake(29, 51);
-    self.view.pl_size = newSize;
+    self.view.plx_size = newSize;
     XCTAssertTrue(CGSizeEqualToSize(newSize, self.view.frame.size));
 }
 
 - (void)testSize {
     CGSize size = self.view.frame.size;
-    XCTAssertTrue(CGSizeEqualToSize(size, self.view.pl_size));
+    XCTAssertTrue(CGSizeEqualToSize(size, self.view.plx_size));
 }
 
 - (void)testSetWidth {
     CGFloat newWidth = 201;
-    self.view.pl_width = newWidth;
+    self.view.plx_width = newWidth;
     XCTAssertEqualWithAccuracy(newWidth, CGRectGetWidth(self.view.frame), FLT_EPSILON);
 }
 
 - (void)testWidth {
-    CGFloat width = self.view.pl_width;
+    CGFloat width = self.view.plx_width;
     XCTAssertEqualWithAccuracy(width, CGRectGetWidth(self.view.frame), FLT_EPSILON);
 }
 
 - (void)testSetHeight {
     CGFloat newHeight = 101;
-    self.view.pl_height = newHeight;
+    self.view.plx_height = newHeight;
     XCTAssertEqualWithAccuracy(newHeight, CGRectGetHeight(self.view.frame), FLT_EPSILON);
 }
 
 - (void)testHeight {
-    CGFloat height = self.view.pl_height;
+    CGFloat height = self.view.plx_height;
     XCTAssertEqualWithAccuracy(height, CGRectGetHeight(self.view.frame), FLT_EPSILON);
 }
 

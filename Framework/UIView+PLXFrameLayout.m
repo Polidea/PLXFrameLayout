@@ -30,18 +30,18 @@ static NSArray *setterAttributes = nil;
     [super load];
 
     horizontalAttributeGetters = @{
-            @(NSLayoutAttributeLeft) : NSStringFromSelector(@selector(pl_minX)),
-            @(NSLayoutAttributeCenterX) : NSStringFromSelector(@selector(pl_midX)),
-            @(NSLayoutAttributeRight) : NSStringFromSelector(@selector(pl_maxX))
+            @(NSLayoutAttributeLeft) : NSStringFromSelector(@selector(plx_minX)),
+            @(NSLayoutAttributeCenterX) : NSStringFromSelector(@selector(plx_midX)),
+            @(NSLayoutAttributeRight) : NSStringFromSelector(@selector(plx_maxX))
     };
     verticalAttributeGetters = @{
-            @(NSLayoutAttributeTop) : NSStringFromSelector(@selector(pl_minY)),
-            @(NSLayoutAttributeCenterY) : NSStringFromSelector(@selector(pl_midY)),
-            @(NSLayoutAttributeBottom) : NSStringFromSelector(@selector(pl_maxY))
+            @(NSLayoutAttributeTop) : NSStringFromSelector(@selector(plx_minY)),
+            @(NSLayoutAttributeCenterY) : NSStringFromSelector(@selector(plx_midY)),
+            @(NSLayoutAttributeBottom) : NSStringFromSelector(@selector(plx_maxY))
     };
     dimensionAttributeGetters = @{
-            @(NSLayoutAttributeWidth) : NSStringFromSelector(@selector(pl_width)),
-            @(NSLayoutAttributeHeight) : NSStringFromSelector(@selector(pl_height))
+            @(NSLayoutAttributeWidth) : NSStringFromSelector(@selector(plx_width)),
+            @(NSLayoutAttributeHeight) : NSStringFromSelector(@selector(plx_height))
     };
 
     horizontalAttributeSetters = [self settersMapWithGetters:horizontalAttributeGetters];
@@ -67,110 +67,110 @@ static NSArray *setterAttributes = nil;
 
 #pragma mark - MinY
 
-- (CGFloat)pl_minY {
-    return CGRectGetMinY(self.pl_frame);
+- (CGFloat)plx_minY {
+    return CGRectGetMinY(self.plx_frame);
 }
 
-- (void)pl_setMinY:(CGFloat)minY {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMinY:(CGFloat)minY {
+    CGRect frame = self.plx_frame;
     frame.origin.y = minY;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - MidY
 
-- (CGFloat)pl_midY {
-    return CGRectGetMidY(self.pl_frame);
+- (CGFloat)plx_midY {
+    return CGRectGetMidY(self.plx_frame);
 }
 
-- (void)pl_setMidY:(CGFloat)midY {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMidY:(CGFloat)midY {
+    CGRect frame = self.plx_frame;
     frame.origin.y = midY - frame.size.height * 0.5f;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - MaxY
 
-- (CGFloat)pl_maxY {
-    return CGRectGetMaxY(self.pl_frame);
+- (CGFloat)plx_maxY {
+    return CGRectGetMaxY(self.plx_frame);
 }
 
-- (void)pl_setMaxY:(CGFloat)maxY {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMaxY:(CGFloat)maxY {
+    CGRect frame = self.plx_frame;
     frame.origin.y = maxY - frame.size.height;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - MinX
 
-- (CGFloat)pl_minX {
-    return CGRectGetMinX(self.pl_frame);
+- (CGFloat)plx_minX {
+    return CGRectGetMinX(self.plx_frame);
 }
 
-- (void)pl_setMinX:(CGFloat)minX {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMinX:(CGFloat)minX {
+    CGRect frame = self.plx_frame;
     frame.origin.x = minX;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - MidX
 
-- (CGFloat)pl_midX {
-    return CGRectGetMidX(self.pl_frame);
+- (CGFloat)plx_midX {
+    return CGRectGetMidX(self.plx_frame);
 }
 
-- (void)pl_setMidX:(CGFloat)midX {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMidX:(CGFloat)midX {
+    CGRect frame = self.plx_frame;
     frame.origin.x = midX - frame.size.width * 0.5f;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - MaxX
 
-- (CGFloat)pl_maxX {
-    return CGRectGetMaxX(self.pl_frame);
+- (CGFloat)plx_maxX {
+    return CGRectGetMaxX(self.plx_frame);
 }
 
-- (void)pl_setMaxX:(CGFloat)maxX {
-    CGRect frame = self.pl_frame;
+- (void)plx_setMaxX:(CGFloat)maxX {
+    CGRect frame = self.plx_frame;
     frame.origin.x = maxX - frame.size.width;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - Dimensions
 
-- (CGFloat)pl_width {
-    return self.pl_frame.size.width;
+- (CGFloat)plx_width {
+    return self.plx_frame.size.width;
 }
 
-- (void)pl_setWidth:(CGFloat)pl_width {
-    self.pl_size = CGSizeMake(pl_width, self.pl_height);
+- (void)plx_setWidth:(CGFloat)plx_width {
+    self.plx_size = CGSizeMake(plx_width, self.plx_height);
 }
 
-- (CGFloat)pl_height {
-    return self.pl_frame.size.height;
+- (CGFloat)plx_height {
+    return self.plx_frame.size.height;
 }
 
-- (void)pl_setHeight:(CGFloat)height {
-    self.pl_size = CGSizeMake(self.pl_width, height);
+- (void)plx_setHeight:(CGFloat)height {
+    self.plx_size = CGSizeMake(self.plx_width, height);
 }
 
-- (CGSize)pl_size {
-    return self.pl_frame.size;
+- (CGSize)plx_size {
+    return self.plx_frame.size;
 }
 
-- (void)pl_setSize:(CGSize)size {
-    CGRect frame = self.pl_frame;
+- (void)plx_setSize:(CGSize)size {
+    CGRect frame = self.plx_frame;
     frame.size = size;
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
-- (CGRect)pl_frame {
-    return self.pl_shouldUseBoundsInsteadOfFrame ? self.bounds : self.frame;
+- (CGRect)plx_frame {
+    return self.plx_shouldUseBoundsInsteadOfFrame ? self.bounds : self.frame;
 }
 
-- (void)pl_setFrame:(CGRect)rect {
-    if (self.pl_shouldUseBoundsInsteadOfFrame) {
+- (void)plx_setFrame:(CGRect)rect {
+    if (self.plx_shouldUseBoundsInsteadOfFrame) {
         self.bounds = rect;
     } else {
         self.frame = rect;
@@ -215,7 +215,7 @@ static NSArray *setterAttributes = nil;
         } else if (previousView) {
             [view plx_placeUnder:previousView withMargin:margin];
         }
-        height += margin + view.pl_height;
+        height += margin + view.plx_height;
         previousView = view;
         previousSpacing = nil;
         switch (attribute) {
@@ -272,7 +272,7 @@ static NSArray *setterAttributes = nil;
         } else if (previousView) {
             [view plx_placeOnRightOf:previousView withMargin:margin];
         }
-        width += margin + view.pl_width;
+        width += margin + view.plx_width;
         previousView = view;
         previousSpacing = nil;
         switch (attribute) {
@@ -310,7 +310,7 @@ static NSArray *setterAttributes = nil;
             }
         } else {
             BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
-            allNonExpandableViewsHeight += isExpandableView ? 0 : [viewOrSpacing pl_height];
+            allNonExpandableViewsHeight += isExpandableView ? 0 : [viewOrSpacing plx_height];
             if (!firstView) {
                 firstView = viewOrSpacing;
             }
@@ -321,7 +321,7 @@ static NSArray *setterAttributes = nil;
     CGFloat heightForSingleExpandableView = freeVerticalSpace / (CGFloat) expandableViews.count;
 
     for (UIView *expandableView in expandableViews) {
-        expandableView.pl_height = heightForSingleExpandableView;
+        expandableView.plx_height = heightForSingleExpandableView;
     }
 
     [firstView plx_alignToAttribute:NSLayoutAttributeTop ofView:self withOffset:firstSpacing.floatValue];
@@ -343,7 +343,7 @@ static NSArray *setterAttributes = nil;
             }
         } else {
             BOOL isExpandableView = [expandableViews containsObject:viewOrSpacing];
-            allNonExpandableViewsWidth += isExpandableView ? 0 : [viewOrSpacing pl_width];
+            allNonExpandableViewsWidth += isExpandableView ? 0 : [viewOrSpacing plx_width];
             if (!firstView) {
                 firstView = viewOrSpacing;
             }
@@ -354,7 +354,7 @@ static NSArray *setterAttributes = nil;
     CGFloat widthForSingleExpandableView = freeHorizontalSpace / (CGFloat) expandableViews.count;
 
     for (UIView *expandableView in expandableViews) {
-        expandableView.pl_width = widthForSingleExpandableView;
+        expandableView.plx_width = widthForSingleExpandableView;
     }
 
     [firstView plx_alignToAttribute:NSLayoutAttributeLeft ofView:self withOffset:firstSpacing.floatValue];
@@ -367,7 +367,7 @@ static NSArray *setterAttributes = nil;
     NSUInteger lastSubviewsIndex = subviews.count - 1;
     CGFloat subviewsTotalHeight = 0;
     for (UIView *view in subviews) {
-        subviewsTotalHeight += view.pl_height;
+        subviewsTotalHeight += view.plx_height;
     }
 
     CGFloat freeVerticalSpace = CGRectGetHeight(self.bounds) - subviewsTotalHeight;
@@ -401,7 +401,7 @@ static NSArray *setterAttributes = nil;
     NSUInteger lastSubviewIndex = subviews.count - 1;
     CGFloat subviewsTotalWidth = 0;
     for (UIView *view in subviews) {
-        subviewsTotalWidth += view.pl_width;
+        subviewsTotalWidth += view.plx_width;
     }
 
     CGFloat freeHorizontalSpace = CGRectGetWidth(self.bounds) - subviewsTotalWidth;
@@ -434,7 +434,7 @@ static NSArray *setterAttributes = nil;
 #pragma mark - Edges
 
 - (void)plx_expandToSuperViewEdges {
-    self.pl_frame = self.superview.bounds;
+    self.plx_frame = self.superview.bounds;
 }
 
 - (void)plx_expandToSuperViewEdgesWithInsets:(UIEdgeInsets)insets {
@@ -453,7 +453,7 @@ static NSArray *setterAttributes = nil;
 }
 
 - (void)plx_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset {
-    CGRect frame = self.pl_frame;
+    CGRect frame = self.plx_frame;
     switch (edge) {
         case NSLayoutAttributeLeft: {
             CGFloat xDelta = CGRectGetMinX(frame) - inset;
@@ -486,7 +486,7 @@ static NSArray *setterAttributes = nil;
         default:
             break;
     }
-    self.pl_frame = frame;
+    self.plx_frame = frame;
 }
 
 #pragma mark - Center
@@ -622,12 +622,12 @@ static NSArray *setterAttributes = nil;
     }
 
     if ([view isEqual:self.superview]) {
-        view.pl_shouldUseBoundsInsteadOfFrame = YES;
+        view.plx_shouldUseBoundsInsteadOfFrame = YES;
     }
 
     SEL outerAttributeSelector = NSSelectorFromString(matchedGetterAttributes[@(outerAttribute)]);
     CGFloat outerAttributeValue = CGFloatMsgSend(view, outerAttributeSelector);
-    view.pl_shouldUseBoundsInsteadOfFrame = NO;
+    view.plx_shouldUseBoundsInsteadOfFrame = NO;
 
     CGFloat value = outerAttributeValue * multiplier + offset;
 
@@ -643,12 +643,12 @@ static NSArray *setterAttributes = nil;
     }
 }
 
-- (BOOL)pl_shouldUseBoundsInsteadOfFrame {
-    return [objc_getAssociatedObject(self, @selector(pl_shouldUseBoundsInsteadOfFrame)) boolValue];
+- (BOOL)plx_shouldUseBoundsInsteadOfFrame {
+    return [objc_getAssociatedObject(self, @selector(plx_shouldUseBoundsInsteadOfFrame)) boolValue];
 }
 
-- (void)setPl_shouldUseBoundsInsteadOfFrame:(BOOL)shouldUseBoundsInsteadOfFrame {
-    objc_setAssociatedObject(self, @selector(pl_shouldUseBoundsInsteadOfFrame), @(shouldUseBoundsInsteadOfFrame), OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setPlx_shouldUseBoundsInsteadOfFrame:(BOOL)shouldUseBoundsInsteadOfFrame {
+    objc_setAssociatedObject(self, @selector(plx_shouldUseBoundsInsteadOfFrame), @(shouldUseBoundsInsteadOfFrame), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 NSString *PLX_NSStringFromLayoutAttributes(NSLayoutAttribute attribute) {
@@ -740,6 +740,86 @@ NSString *PLX_NSStringFromLayoutAttributes(NSLayoutAttribute attribute) {
 }
 
 #pragma mark - Deprecated prefix
+
+- (CGFloat)pl_minY {
+    return self.plx_minY;
+}
+
+- (void)pl_setMinY:(CGFloat)pl_minY {
+    self.plx_minY = pl_minY;
+}
+
+- (CGFloat)pl_midY {
+    return self.plx_midY;
+}
+
+- (void)pl_setMidY:(CGFloat)pl_midY {
+    self.plx_midY = pl_midY;
+}
+
+- (CGFloat)pl_maxY {
+    return self.plx_maxY;
+}
+
+- (void)pl_setMaxY:(CGFloat)pl_maxY {
+    self.plx_maxY = pl_maxY;
+}
+
+- (CGFloat)pl_minX {
+    return self.plx_minX;
+}
+
+- (void)pl_setMinX:(CGFloat)pl_minX {
+    self.plx_minX = pl_minX;
+}
+
+- (CGFloat)pl_midX {
+    return self.plx_midX;
+}
+
+- (void)pl_setMidX:(CGFloat)pl_midX {
+    self.plx_midX = pl_midX;
+}
+
+- (CGFloat)pl_maxX {
+    return self.plx_maxX;
+}
+
+- (void)pl_setMaxX:(CGFloat)pl_maxX {
+    self.plx_maxX = pl_maxX;
+}
+
+- (CGFloat)pl_width {
+    return self.plx_width;
+}
+
+- (void)pl_setWidth:(CGFloat)pl_width {
+    self.plx_width = pl_width;
+}
+
+- (CGFloat)pl_height {
+    return self.plx_height;
+}
+
+- (void)pl_setHeight:(CGFloat)pl_height {
+    self.plx_height = pl_height;
+}
+
+- (CGSize)pl_size {
+    return self.plx_size;
+}
+
+- (void)pl_setSize:(CGSize)pl_size {
+    self.plx_size = pl_size;
+}
+
+- (CGRect)pl_frame {
+    return self.plx_frame;
+}
+
+- (void)pl_setFrame:(CGRect)pl_frame {
+    self.plx_frame = pl_frame;
+}
 
 - (void)pl_sizeToFitSubviews {
     [self plx_sizeToFitSubviews];

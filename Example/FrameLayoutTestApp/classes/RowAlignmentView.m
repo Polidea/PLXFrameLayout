@@ -50,7 +50,7 @@ static const CGFloat ItemsHorizontalSpacing = 10.0;
     return [UIView viewsAlignmentArrayWithCapacity:NumberOfVerticalItems
                                     withBuildBlock:^UIView * {
                                         UIView *subview = [ColorSubviewFactory greenView];
-                                        subview.pl_size = size;
+                                        subview.plx_size = size;
                                         return subview;
                                     }
                                     defaultSpacing:ItemsVerticalSpacing];
@@ -60,7 +60,7 @@ static const CGFloat ItemsHorizontalSpacing = 10.0;
     return [UIView viewsAlignmentArrayWithCapacity:NumberOfHorizontalItems
                                     withBuildBlock:^UIView * {
                                         UIView *subview = [ColorSubviewFactory yellowView];
-                                        subview.pl_size = size;
+                                        subview.plx_size = size;
                                         return subview;
                                     }
                                     defaultSpacing:ItemsHorizontalSpacing];
