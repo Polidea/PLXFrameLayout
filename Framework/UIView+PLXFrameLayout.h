@@ -29,7 +29,7 @@
 @property(nonatomic, assign, setter=pl_setMinX:) CGFloat pl_minX;
 
 /**
- *  Represents midX of the view's frame. Assignale.
+ *  Represents midX of the view's frame. Assignable.
  */
 @property(nonatomic, assign, setter=pl_setMidX:) CGFloat pl_midX;
 
@@ -263,7 +263,7 @@
 - (void)plx_placeUnderAligningToRight:(UIView *)view withMargin:(CGFloat)margin;
 
 /**
- *  Places the receiver under the given view with magin.
+ *  Places the receiver under the given view with margin.
  *
  *  @param view   View to be aligned to.
  *  @param margin Margin between the receiver and the given view.
@@ -271,7 +271,7 @@
 - (void)plx_placeUnder:(UIView *)view withMargin:(CGFloat)margin;
 
 /**
- *  Places the receiver above the given view with magin.
+ *  Places the receiver above the given view with margin.
  *
  *  @param view   View to be aligned to.
  *  @param margin Margin between the receiver and the given view.
@@ -279,7 +279,7 @@
 - (void)plx_placeAbove:(UIView *)view withMargin:(CGFloat)margin;
 
 /**
- *  Places the receiver on the left the given view with magin.
+ *  Places the receiver on the left the given view with margin.
  *
  *  @param view   View to be aligned to.
  *  @param margin Margin between the receiver and the given view.
@@ -287,7 +287,7 @@
 - (void)plx_placeOnLeftOf:(UIView *)view withMargin:(CGFloat)margin;
 
 /**
- *  Places the receiver above the given view with magin.
+ *  Places the receiver above the given view with margin.
  *
  *  @param view   View to be aligned to.
  *  @param margin Margin between the receiver and the given view.
@@ -361,7 +361,7 @@
 - (void)plx_expandToSuperViewEdges;
 
 /**
- *  Expands receiver frame to its superview bounds wiyth insets.
+ *  Expands receiver frame to its superview bounds with insets.
  *
  *  @param insets Insets to be applied to layout.
  */
@@ -388,7 +388,7 @@
 /**
  *  Expands receiver's given edge (attribute) to the same edge (attribute) of it's superview with inset.
  *
- *  @param edge  Attribute that identifies edge that will be expaneded.
+ *  @param edge  Attribute that identifies edge that will be expanded.
  *  @param inset Inset to be applied to layout.
  */
 - (void)plx_expandToSuperViewEdge:(NSLayoutAttribute)edge withInset:(CGFloat)inset;
@@ -420,7 +420,7 @@
  *  @param shouldAddTopAndBottomMargins Determines whether to consider margins during computation.
  *
  *  @discussion Last parameter specifies if during computation views should be aligned to the superview's edges
- *  or between top (and bottom) view and appriopriate edge of the superview should be space equal to the space between views.
+ *  or between top (and bottom) view and appropriate edge of the superview should be space equal to the space between views.
  */
 - (void)plx_distributeSubviewsVerticallyInSuperView:(NSArray *)subviews withTopAndBottomMargin:(BOOL)shouldAddTopAndBottomMargins;
 
@@ -431,7 +431,7 @@
  *  @param shouldAddLeftAndRightMargin Determines whether to consider margins during computation.
  *
  *  @discussion Last parameter specifies if during computation views should be aligned to the superview's edges
- *  or between left (and right) view and appriopriate edge of the superview should be space equal to the space between views.
+ *  or between left (and right) view and appropriate edge of the superview should be space equal to the space between views.
  */
 - (void)plx_distributeSubviewsHorizontallyInSuperView:(NSArray *)subviews withLeftAndRightMargin:(BOOL)shouldAddLeftAndRightMargin;
 
