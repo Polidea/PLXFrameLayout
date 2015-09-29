@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "PLXFrameLayout"
-  s.version          = "0.1.4"
+  s.version          = "0.2"
   s.homepage         = "https://github.com/Polidea/PLXFrameLayout"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "iOS Team at Polidea" => "ios-devs@polidea.com" }
