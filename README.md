@@ -255,3 +255,8 @@ Feel free to contribute by pull requests or create issues.
 
 ###License
 **PLXFrameLayout** is released under a MIT License. See LICENSE file for details.
+
+## Author
+Maciej Oczko (maciek.oczko@polidea.com), Paweł Ścibek (pawel.scibek@polidea.com)
+
+[Polidea](http://www.polidea.com/)
